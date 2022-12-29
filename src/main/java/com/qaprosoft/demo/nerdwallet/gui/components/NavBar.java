@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.nerdwallet.gui.components;
+package com.qaprosoft.demo.nerdwallet.gui.components;
 
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;

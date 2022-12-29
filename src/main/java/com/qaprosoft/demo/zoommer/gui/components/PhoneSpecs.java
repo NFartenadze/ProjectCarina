@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.zoommer.gui.components;
+package com.qaprosoft.demo.zoommer.gui.components;
 
 public enum PhoneSpecs {
     RAM4("4 GB"),

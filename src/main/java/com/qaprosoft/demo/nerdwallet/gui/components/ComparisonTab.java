@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.nerdwallet.gui.components;
+package com.qaprosoft.demo.nerdwallet.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;

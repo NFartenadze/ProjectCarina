@@ -31,6 +31,6 @@ public class ResultPage extends ResultPageBase {
     @Override
     public ItemPageBase selectSearchedItem(int i) {
         resultItems.get(i).click();
-        return initPage(getDriver(),ItemPageBase.class);
+        return initPage(getDriver(), ItemPageBase.class);
     }
 }

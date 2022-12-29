@@ -1,8 +1,8 @@
-package com.qaprosoft.carina.zoommer.gui.pages;
+package com.qaprosoft.demo.zoommer.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.zoommer.gui.components.PhoneSpecs;
+import com.qaprosoft.demo.zoommer.gui.components.PhoneSpecs;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 

@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *******************************************************************************/
-package com.qaprosoft.carina.demo.db.mappers;
+package com.qaprosoft.demo.demo.db.mappers;
 
-import com.qaprosoft.carina.demo.db.models.User;
+import com.qaprosoft.demo.demo.db.models.User;
 
 public interface UserMapper {
 

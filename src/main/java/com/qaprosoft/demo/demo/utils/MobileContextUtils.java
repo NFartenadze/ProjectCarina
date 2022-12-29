@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.utils;
+package com.qaprosoft.demo.demo.utils;
 
 import com.qaprosoft.carina.core.foundation.webdriver.DriverHelper;
 import com.qaprosoft.carina.core.foundation.webdriver.IDriverPool;

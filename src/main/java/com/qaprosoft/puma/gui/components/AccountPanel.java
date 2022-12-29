@@ -6,6 +6,7 @@ import com.qaprosoft.puma.gui.pages.LoginPage;
 import com.qaprosoft.puma.gui.pages.RegistrationPage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -26,6 +27,10 @@ public class AccountPanel extends AbstractUIObject {
 
     public AccountPanel(WebDriver driver) {
         super(driver);
+    }
+
+    public AccountPanel(WebDriver driver, SearchContext searchContext) {
+        super(driver, searchContext);
     }
 
     public boolean isLanguagePresent() {

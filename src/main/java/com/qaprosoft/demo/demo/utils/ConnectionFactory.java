@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.qaprosoft.carina.demo.utils;
+package com.qaprosoft.demo.demo.utils;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -23,8 +23,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.qaprosoft.carina.demo.db.mappers.UserMapper;
-import com.qaprosoft.carina.demo.db.mappers.UserPreferenceMapper;
+import com.qaprosoft.demo.demo.db.mappers.UserMapper;
+import com.qaprosoft.demo.demo.db.mappers.UserPreferenceMapper;
 
 public class ConnectionFactory {
 	private static SqlSessionFactory factory;

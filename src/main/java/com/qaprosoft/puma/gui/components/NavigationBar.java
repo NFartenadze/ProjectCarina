@@ -3,6 +3,7 @@ package com.qaprosoft.puma.gui.components;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import com.qaprosoft.puma.gui.pages.ResultPage;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -27,6 +28,10 @@ public class NavigationBar extends AbstractUIObject {
 
     public NavigationBar(WebDriver driver) {
         super(driver);
+    }
+
+    public NavigationBar(WebDriver driver, SearchContext searchContext) {
+        super(driver, searchContext);
     }
 
     public void hoverWomenLink() throws InterruptedException {

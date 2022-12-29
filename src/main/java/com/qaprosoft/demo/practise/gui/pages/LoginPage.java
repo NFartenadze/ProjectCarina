@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.practise.gui.pages;
+package com.qaprosoft.demo.practise.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;

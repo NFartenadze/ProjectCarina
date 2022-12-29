@@ -1,6 +1,6 @@
-package com.qaprosoft.carina.demo.mobile.gui.pages.common;
+package com.qaprosoft.demo.demo.mobile.gui.pages.common;
 
-import com.qaprosoft.carina.demo.mobile.gui.pages.android.users.User;
+import com.qaprosoft.demo.demo.mobile.gui.pages.android.users.User;
 import org.openqa.selenium.WebDriver;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;

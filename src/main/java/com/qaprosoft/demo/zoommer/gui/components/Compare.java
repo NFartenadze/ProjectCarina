@@ -1,13 +1,10 @@
-package com.qaprosoft.carina.zoommer.gui.components;
+package com.qaprosoft.demo.zoommer.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.carina.zoommer.gui.pages.ComparePage;
+import com.qaprosoft.demo.zoommer.gui.pages.ComparePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.List;
 
 public class Compare extends AbstractUIObject {
 

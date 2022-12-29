@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.soap;
+package com.qaprosoft.demo.demo.soap;
 
 import com.qaprosoft.carina.core.foundation.api.AbstractApiMethodV2;
 import com.qaprosoft.carina.core.foundation.api.annotation.*;

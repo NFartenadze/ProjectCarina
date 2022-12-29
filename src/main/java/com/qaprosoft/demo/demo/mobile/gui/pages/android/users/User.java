@@ -1,4 +1,4 @@
-package com.qaprosoft.carina.demo.mobile.gui.pages.android.users;
+package com.qaprosoft.demo.demo.mobile.gui.pages.android.users;
 
 import java.util.ArrayList;
 import java.util.HashMap;

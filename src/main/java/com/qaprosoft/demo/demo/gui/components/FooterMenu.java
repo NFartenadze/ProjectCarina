@@ -13,17 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.qaprosoft.carina.demo.gui.components;
+package com.qaprosoft.demo.demo.gui.components;
 
+import com.qaprosoft.demo.demo.gui.pages.CompareModelsPage;
+import com.qaprosoft.demo.demo.gui.pages.HomePage;
+import com.qaprosoft.demo.demo.gui.pages.NewsPage;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.carina.demo.gui.pages.CompareModelsPage;
-import com.qaprosoft.carina.demo.gui.pages.HomePage;
-import com.qaprosoft.carina.demo.gui.pages.NewsPage;
 
 public class FooterMenu extends AbstractUIObject {
     @FindBy(linkText = "Home")

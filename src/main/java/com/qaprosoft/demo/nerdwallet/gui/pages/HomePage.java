@@ -1,8 +1,7 @@
-package com.qaprosoft.carina.nerdwallet.gui.pages;
+package com.qaprosoft.demo.nerdwallet.gui.pages;
 
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.carina.nerdwallet.gui.components.ComparisonTab;
+import com.qaprosoft.demo.nerdwallet.gui.components.ComparisonTab;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 

@@ -14,7 +14,7 @@ public class Puma implements IAbstractTest {
 
 
     @Test
-    public void search() throws IOException {
+    public void search() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
@@ -40,6 +40,7 @@ public class Puma implements IAbstractTest {
         NavigationBar navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isSearchBarPresent(), "search bar isn't present");
         navigationBar.typeInSearchBar("shoes");
+
         navigationBar.clickSearch();
         ResultPage resultPage = new ResultPage(getDriver());
         resultPage.closeCookiePanel();

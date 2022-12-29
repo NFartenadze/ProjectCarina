@@ -2,7 +2,7 @@
 <suite verbose="1" name="Zoommer tests" parallel="methods" thread-count="4">
     <test name="Zoommer">
         <classes>
-            <class name="com.qaprosoft.carina.zoommer.gui.pages.ZoomerTest" />
+            <class name="com.qaprosoft.demo.zoommer.gui.pages.ZoomerTest" />
         </classes>
     </test>
 </suite>

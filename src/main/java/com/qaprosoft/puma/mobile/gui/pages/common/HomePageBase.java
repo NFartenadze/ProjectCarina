@@ -7,4 +7,10 @@ public abstract class HomePageBase extends AbstractPage {
     public HomePageBase(WebDriver driver) {
         super(driver);
     }
+
+    public abstract ChromeHomePageBase openChrome();
+
+    public abstract boolean isChromePresent();
+
+
 }
