@@ -5,7 +5,6 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.puma.mobile.gui.pages.common.MenuPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.WishListPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.*;
-import org.apache.pdfbox.rendering.ImageType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -72,7 +71,7 @@ public class MenuPage extends MenuPageBase {
     }
 
     @Override
-    public boolean isWomenPresent()  {
+    public boolean isWomenPresent() {
         return women.isElementPresent();
     }
 

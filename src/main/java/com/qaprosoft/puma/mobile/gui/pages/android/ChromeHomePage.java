@@ -29,7 +29,7 @@ public class ChromeHomePage extends ChromeHomePageBase {
 
 
     @Override
-    public boolean isSearchBarPresent() throws InterruptedException {
+    public boolean isSearchBarPresent() {
         return searchBar.isElementPresent();
     }
 

@@ -12,7 +12,7 @@ public class LanguagePage extends LanguagePageBase {
 
     @FindBy(id = "location-selector-input")
     private ExtendedWebElement searchField;
-    @FindBy(xpath = "//android.app.Dialog/android.widget.Button\n")
+    @FindBy(xpath = "//android.app.Dialog/android.widget.Button")
     private ExtendedWebElement closeBtn;
     @FindBy(xpath = "//android.widget.ListView/android.view.View[1]/android.view.MenuItem[1]")
     private ExtendedWebElement searchedLanguage;
@@ -29,6 +29,7 @@ public class LanguagePage extends LanguagePageBase {
 
     @Override
     public void searchLanguage(States state) {
+        searchField.click();
         searchField.type(state.getState());
     }
 

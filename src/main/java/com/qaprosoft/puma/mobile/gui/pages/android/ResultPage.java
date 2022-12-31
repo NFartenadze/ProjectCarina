@@ -33,4 +33,8 @@ public class ResultPage extends ResultPageBase {
         resultItems.get(i).click();
         return initPage(getDriver(), ItemPageBase.class);
     }
+
+    public static void main(String[] args) {
+        System.out.println("hello world");
+    }
 }
