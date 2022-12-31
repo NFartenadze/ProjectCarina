@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.puma.mobile.gui.pages.common.*;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LanguagePageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.RegistrationPageBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -31,17 +32,30 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void registerNewAccount() throws InterruptedException {
         HomePageBase homePage = new HomePage(getDriver());
         Assert.assertTrue(homePage.isChromePresent(), "Chrome isn't present");
+//        MobileContextUtils contextHelper = new MobileContextUtils();
+//        contextHelper.switchMobileContext(MobileContextUtils.View.WEB);
         ChromeHomePageBase chromeHomePage = homePage.openChrome();
         Assert.assertTrue(chromeHomePage.isSearchBarPresent(), "search bar isn't present");
         chromeHomePage.openPuma();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
-        //couldnt swipe
-//        Assert.assertTrue(menuPage.isRegistrationBtnPresent(), "Register button isn't present");
-//        RegistrationPageBase registrationPage = menuPage.clickRegisterBtn();
-//        Assert.assertTrue(registrationPage.isFirstNameFieldPresent(), "first name isn't present");
-//        registrationPage.typeFirstName("example");
+
+        //PROBLEM: fields are sometimes found/not found
+        Assert.assertTrue(menuPage.isRegistrationBtnPresent(), "Register button isn't present");
+        RegistrationPageBase registrationPage = menuPage.clickRegisterBtn();
+        Assert.assertTrue(registrationPage.isFirstNameFieldPresent(), "first name isn't present");
+        registrationPage.typeFirstName("example");
+        Assert.assertTrue(registrationPage.isLastNameFieldPresent(), "last name isn't present");
+        registrationPage.typeLastName("example");
+        Assert.assertTrue(registrationPage.isEmailFieldPresent(), "email isn't present");
+        registrationPage.typeEmail("example");
+        Assert.assertTrue(registrationPage.isPasswordFieldPresent(), "password isn't present");
+        registrationPage.typePassword("example");
+        Assert.assertTrue(registrationPage.isAddToMailingListCheckboxPresent(), "add to mailing list checkbox isn't present");
+        registrationPage.checkAddToMailingList();
+        Assert.assertTrue(registrationPage.isRegisterBtnPresent(), "register button isn't present");
+        registrationPage.clickRegister();
     }
 
     @Test

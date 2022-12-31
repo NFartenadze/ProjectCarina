@@ -18,10 +18,8 @@ package com.qaprosoft.demo.demo;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
-import com.qaprosoft.demo.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
-import com.qaprosoft.demo.demo.mobile.gui.pages.common.LoginPageBase;
-import com.qaprosoft.demo.demo.mobile.gui.pages.common.UIElementsPageBase;
-import com.qaprosoft.demo.demo.mobile.gui.pages.common.WelcomePageBase;
+import com.qaprosoft.demo.demo.mobile.gui.pages.common.*;
+import com.qaprosoft.demo.demo.utils.MobileContextUtils;
 import com.zebrunner.agent.core.annotation.TestLabel;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.Assert;
@@ -49,26 +47,26 @@ public class MobileSampleTest implements IAbstractTest, IMobileUtils {
     }
 
 
-//	@Test()
-//    @MethodOwner(owner = "qpsdemo")
-//    @TestLabel(name = "feature", value = {"mobile", "regression"})
-//    public void testWebView() {
-//        WelcomePageBase welcomePage = initPage(getDriver(), WelcomePageBase.class);
-//        LoginPageBase loginPage = welcomePage.clickNextBtn();
-//        loginPage.login();
-//        WebViewPageBase webViewPageBase = initPage(getDriver(), WebViewPageBase.class);
-//        MobileContextUtils contextHelper = new MobileContextUtils();
-//        contextHelper.switchMobileContext(View.WEB);
-//        ContactUsPageBase contactUsPage = webViewPageBase.goToContactUsPage();
-//        contactUsPage.typeName("John Doe");
-//        contactUsPage.typeEmail("some@email.com");
-//        contactUsPage.typeQuestion("This is a message");
-//        //TODO: [VD] move page driver related action outside from test class!
-//        hideKeyboard();
-//        contactUsPage.submit();
-//        Assert.assertTrue(contactUsPage.isErrorMessagePresent() || contactUsPage.isRecaptchaPresent(),
-//                "Error message or captcha was not displayed");
-//    }
+    @Test()
+    @MethodOwner(owner = "qpsdemo")
+    @TestLabel(name = "feature", value = {"mobile", "regression"})
+    public void testWebView() {
+        WelcomePageBase welcomePage = initPage(getDriver(), WelcomePageBase.class);
+        LoginPageBase loginPage = welcomePage.clickNextBtn();
+        loginPage.login();
+        WebViewPageBase webViewPageBase = initPage(getDriver(), WebViewPageBase.class);
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.WEB);
+        ContactUsPageBase contactUsPage = webViewPageBase.goToContactUsPage();
+        contactUsPage.typeName("John Doe");
+        contactUsPage.typeEmail("some@email.com");
+        contactUsPage.typeQuestion("This is a message");
+        //TODO: [VD] move page driver related action outside from test class!
+        hideKeyboard();
+        contactUsPage.submit();
+        Assert.assertTrue(contactUsPage.isErrorMessagePresent() || contactUsPage.isRecaptchaPresent(),
+                "Error message or captcha was not displayed");
+    }
 
     @Test()
     @MethodOwner(owner = "qpsdemo")

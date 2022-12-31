@@ -1,6 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
+import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.puma.mobile.gui.pages.common.MenuPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.WishListPageBase;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = MenuPageBase.class)
-public class MenuPage extends MenuPageBase {
+public class MenuPage extends MenuPageBase implements IMobileUtils {
     @FindBy(xpath = "//android.view.View/android.view.MenuItem[1]")
     private ExtendedWebElement giftGuide;
     @FindBy(xpath = "//android.view.View/android.view.MenuItem[2]")
@@ -40,6 +41,8 @@ public class MenuPage extends MenuPageBase {
     private ExtendedWebElement loginBtn;
     @FindBy(xpath = "//android.view.View[@content-desc=\"REGISTER HERE\"]")
     private ExtendedWebElement registerBtn;
+    @FindBy(className = "android.webkit.WebView")
+    private ExtendedWebElement container;
 
     public MenuPage(WebDriver driver) {
         super(driver);
@@ -200,6 +203,7 @@ public class MenuPage extends MenuPageBase {
 
     @Override
     public boolean isRegistrationBtnPresent() {
+        swipe(registerBtn, container);
         return registerBtn.isElementPresent();
     }
 }

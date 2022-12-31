@@ -1,24 +1,25 @@
 package com.qaprosoft.puma.mobile.gui.pages.android.menuitems;
 
 import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
+import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.RegistrationPageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = RegistrationPageBase.class)
-public class RegistrationPage extends RegistrationPageBase {
-    @FindBy(id = "first-name")
+public class RegistrationPage extends RegistrationPageBase implements IMobileUtils {
+    @FindBy(xpath = "//android.view.View[4]/android.view.View[2]/android.widget.EditText")
     private ExtendedWebElement firstNameField;
-    @FindBy(id = "last-name")
+    @FindBy(xpath = "//android.view.View[3]/android.view.View[5]/android.widget.EditText")
     private ExtendedWebElement lastNameField;
-    @FindBy(id = "email")
+    @FindBy(xpath = "//android.view.View[3]/android.view.View[8]/android.widget.EditText")
     private ExtendedWebElement emailField;
-    @FindBy(id = "password")
+    @FindBy(xpath = "//android.view.View[3]/android.view.View[11]/android.widget.EditText")
     private ExtendedWebElement passwordField;
-    @FindBy(id = "email-list")
+    @FindBy(xpath = "//android.view.View[3]/android.widget.CheckBox")
     private ExtendedWebElement addToEmailListCheckBox;
-    @FindBy(id = "register")
+    @FindBy(xpath = "//android.view.View/android.view.View[3]/android.widget.Button")
     private ExtendedWebElement registerBtn;
 
     public RegistrationPage(WebDriver driver) {
@@ -27,6 +28,7 @@ public class RegistrationPage extends RegistrationPageBase {
 
     @Override
     public void typeFirstName(String s) {
+        firstNameField.click();
         firstNameField.type(s);
     }
 
