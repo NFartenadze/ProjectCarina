@@ -8,6 +8,9 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = NavigationBarBase.class)
 public class NavigationBar extends NavigationBarBase {
+    //xpath from web browser
+//    @FindBy(xpath = "//button[@data-test-id='search-icon-nav']")
+//    private ExtendedWebElement searchIcon;
     @FindBy(xpath = "//android.view.View[2]/android.view.View/android.widget.Button[1]")
     private ExtendedWebElement searchIcon;
     @FindBy(id = "nav-wishlist-link")
@@ -16,6 +19,7 @@ public class NavigationBar extends NavigationBarBase {
     private ExtendedWebElement cartIcon;
     @FindBy(xpath = "//android.view.View[2]/android.view.View/android.widget.Button[2]")
     private ExtendedWebElement menuToggle;
+
     public NavigationBar(WebDriver driver) {
         super(driver);
     }
@@ -23,7 +27,7 @@ public class NavigationBar extends NavigationBarBase {
     @Override
     public MenuPageBase openMenuPage() {
         menuToggle.click();
-        return initPage(getDriver(),MenuPageBase.class);
+        return initPage(getDriver(), MenuPageBase.class);
     }
 
     @Override
@@ -34,7 +38,7 @@ public class NavigationBar extends NavigationBarBase {
     @Override
     public CartPageBase openCartPage() {
         cartIcon.click();
-        return initPage(getDriver(),CartPageBase.class);
+        return initPage(getDriver(), CartPageBase.class);
     }
 
     @Override
@@ -45,7 +49,7 @@ public class NavigationBar extends NavigationBarBase {
     @Override
     public SearchPageBase openSearchPage() {
         searchIcon.click();
-        return initPage(getDriver(),SearchPageBase.class);
+        return initPage(getDriver(), SearchPageBase.class);
     }
 
     @Override
@@ -55,7 +59,7 @@ public class NavigationBar extends NavigationBarBase {
 
     @Override
     public WishListPageBase openWishList() {
-        return initPage(getDriver(),WishListPageBase.class);
+        return initPage(getDriver(), WishListPageBase.class);
     }
 
     @Override

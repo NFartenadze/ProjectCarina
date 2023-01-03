@@ -28,7 +28,6 @@ public class RegistrationPage extends RegistrationPageBase implements IMobileUti
 
     @Override
     public void typeFirstName(String s) {
-        firstNameField.click();
         firstNameField.type(s);
     }
 

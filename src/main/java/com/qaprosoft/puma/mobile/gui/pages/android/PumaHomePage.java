@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 public class PumaHomePage extends PumaHomePageBase {
     public PumaHomePage(WebDriver driver) {
         super(driver);
+        setPageURL("https://us.puma.com/us/en");
     }
 
 

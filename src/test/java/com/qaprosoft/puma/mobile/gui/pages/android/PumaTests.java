@@ -2,7 +2,11 @@ package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
-import com.qaprosoft.puma.mobile.gui.pages.common.*;
+import com.qaprosoft.demo.demo.utils.MobileContextUtils;
+import com.qaprosoft.puma.mobile.gui.pages.common.MenuPageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.NavigationBarBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.PumaHomePageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.SearchPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LanguagePageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.RegistrationPageBase;
 import org.testng.Assert;
@@ -10,13 +14,10 @@ import org.testng.annotations.Test;
 
 public class PumaTests implements IAbstractTest, IMobileUtils {
 
-    @Test
+    @Test(groups = "android")
     public void searchItem() throws InterruptedException {
-        HomePageBase homePage = new HomePage(getDriver());
-        Assert.assertTrue(homePage.isChromePresent(), "Chrome isn't present");
-        ChromeHomePageBase chromeHomePage = homePage.openChrome();
-        Assert.assertTrue(chromeHomePage.isSearchBarPresent(), "search bar isn't present");
-        chromeHomePage.openPuma();
+        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        pumaHomePage.open();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isSearchPresent(), "search bar isn't present");
         SearchPageBase searchPage = navigationBar.openSearchPage();
@@ -28,15 +29,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
 //        resultPage.printResultItemTexts();
     }
 
-    @Test
+    @Test(groups = "android")
     public void registerNewAccount() throws InterruptedException {
-        HomePageBase homePage = new HomePage(getDriver());
-        Assert.assertTrue(homePage.isChromePresent(), "Chrome isn't present");
-//        MobileContextUtils contextHelper = new MobileContextUtils();
-//        contextHelper.switchMobileContext(MobileContextUtils.View.WEB);
-        ChromeHomePageBase chromeHomePage = homePage.openChrome();
-        Assert.assertTrue(chromeHomePage.isSearchBarPresent(), "search bar isn't present");
-        chromeHomePage.openPuma();
+        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        pumaHomePage.open();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
@@ -58,13 +54,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         registrationPage.clickRegister();
     }
 
-    @Test
+    @Test(groups = "android")
     public void changeLanguage() throws InterruptedException {
-        HomePageBase homePage = new HomePage(getDriver());
-        Assert.assertTrue(homePage.isChromePresent(), "Chrome isn't present");
-        ChromeHomePageBase chromeHomePage = homePage.openChrome();
-        Assert.assertTrue(chromeHomePage.isSearchBarPresent(), "search bar isn't present");
-        chromeHomePage.openPuma();
+        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        pumaHomePage.open();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
@@ -73,6 +66,16 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         //panel items cannot be interacted with somehow
 //        languagePage.searchLanguage(States.ALABAMA);
 //        languagePage.selectLanguage();
+    }
+
+    @Test(groups = "android")
+    public void webContext() {
+        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        pumaHomePage.open();
+        MobileContextUtils contextHelper = new MobileContextUtils();
+        contextHelper.switchMobileContext(MobileContextUtils.View.WEB);
+        NavigationBarBase navigationBar = new NavigationBar(getDriver());
+        Assert.assertTrue(navigationBar.isSearchPresent(), "search isn't present");
     }
 
 }
