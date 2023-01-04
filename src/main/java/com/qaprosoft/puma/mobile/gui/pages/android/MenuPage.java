@@ -1,11 +1,11 @@
 package com.qaprosoft.puma.mobile.gui.pages.android;
 
-import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType;
-import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.puma.mobile.gui.pages.common.MenuPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.WishListPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.*;
+import com.zebrunner.carina.utils.factory.DeviceType;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -41,8 +41,8 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
     private ExtendedWebElement loginBtn;
     @FindBy(xpath = "//a[@data-test-id='register-button']")
     private ExtendedWebElement registerBtn;
-//    @FindBy(className = "android.webkit.WebView")
-//    private ExtendedWebElement container;
+    @FindBy(className = "android.webkit.WebView")
+    private ExtendedWebElement container;
 
     public MenuPage(WebDriver driver) {
         super(driver);
@@ -198,13 +198,14 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
 
     @Override
     public RegistrationPageBase clickRegisterBtn() {
+        registerBtn.scrollTo();
         registerBtn.click();
         return initPage(getDriver(), RegistrationPageBase.class);
     }
 
     @Override
     public boolean isRegistrationBtnPresent() {
-//        swipe(registerBtn, container);
+        registerBtn.scrollTo();
         return registerBtn.isElementPresent();
     }
 }

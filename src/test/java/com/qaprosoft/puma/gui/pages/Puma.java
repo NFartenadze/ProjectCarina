@@ -18,7 +18,7 @@ public class Puma implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
-        homePage.clickStayOnRegion();
+//        homePage.clickStayOnRegion();
         NavigationBar navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isSearchBarPresent(), "search bar isn't present");
         navigationBar.typeInSearchBar("Bag");
