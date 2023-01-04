@@ -8,14 +8,15 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = InitiateReturnPageBase.class)
 public class InitiateReturnPage extends InitiateReturnPageBase {
-    @FindBy(id = "order-no")
+    @FindBy(xpath = "//input[@data-test-id='order-no']")
     private ExtendedWebElement orderNumberField;
-    @FindBy(id = "order-email")
+    @FindBy(id = "//input[@data-test-id='order-email']")
     private ExtendedWebElement emailField;
-    @FindBy(id = "billing-postal-code")
+    @FindBy(id = "//input[@data-test-id='billing-postal-code']")
     private ExtendedWebElement postalCodeField;
-    @FindBy(xpath = "submit-button")
+    @FindBy(xpath = "//button[@data-test-id='submit-button']")
     private ExtendedWebElement submitBtn;
+
     public InitiateReturnPage(WebDriver driver) {
         super(driver);
     }

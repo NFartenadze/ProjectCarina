@@ -9,17 +9,17 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = RegistrationPageBase.class)
 public class RegistrationPage extends RegistrationPageBase implements IMobileUtils {
-    @FindBy(xpath = "//android.view.View[4]/android.view.View[2]/android.widget.EditText")
+    @FindBy(xpath = "//input[@data-test-id='first-name']")
     private ExtendedWebElement firstNameField;
-    @FindBy(xpath = "//android.view.View[3]/android.view.View[5]/android.widget.EditText")
+    @FindBy(xpath = "//input[@data-test-id='last-name']")
     private ExtendedWebElement lastNameField;
-    @FindBy(xpath = "//android.view.View[3]/android.view.View[8]/android.widget.EditText")
+    @FindBy(xpath = "//input[@data-test-id='email']")
     private ExtendedWebElement emailField;
-    @FindBy(xpath = "//android.view.View[3]/android.view.View[11]/android.widget.EditText")
+    @FindBy(xpath = "//input[@data-test-id='password']")
     private ExtendedWebElement passwordField;
-    @FindBy(xpath = "//android.view.View[3]/android.widget.CheckBox")
+    @FindBy(xpath = "//input[@name='emailList']")
     private ExtendedWebElement addToEmailListCheckBox;
-    @FindBy(xpath = "//android.view.View/android.view.View[3]/android.widget.Button")
+    @FindBy(xpath = "//button[@data-test-id='register']")
     private ExtendedWebElement registerBtn;
 
     public RegistrationPage(WebDriver driver) {

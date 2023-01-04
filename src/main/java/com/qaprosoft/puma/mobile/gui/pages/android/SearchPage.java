@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SearchPageBase.class)
 public class SearchPage extends SearchPageBase {
-    @FindBy(xpath = "//android.view.View/android.view.View/android.widget.EditText")
+    @FindBy(xpath = "//input[@data-test-id='search-box-mobile']")
     private ExtendedWebElement searchField;
 
     public SearchPage(WebDriver driver) {

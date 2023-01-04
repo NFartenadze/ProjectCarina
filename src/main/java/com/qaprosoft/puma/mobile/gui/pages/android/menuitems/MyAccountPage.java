@@ -9,14 +9,17 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = MyAccountPageBase.class)
 public class MyAccountPage extends MyAccountPageBase {
-    @FindBy(id = "logout")
-    private ExtendedWebElement logoutBtn;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"EDIT PROFILE\"]/android.view.View/android.widget.TextView[1]")
+    @FindBy(xpath = "//a[@id = 'edit-profile-button']")
     private ExtendedWebElement editProfileBtn;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"CHANGE PASSWORD\"]/android.view.View/android.widget.TextView[1]")
+
+    @FindBy(xpath = "//a[@id = 'edit-password-button']")
     private ExtendedWebElement changePasswordBtn;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"ADD NEW\"]")
+
+    @FindBy(xpath = "//a[@data-test-id='add-new-address']")
     private ExtendedWebElement addNewBtn;
+    @FindBy(xpath = "//button[@data-test-id='account-logout-button']")
+    private ExtendedWebElement logoutBtn;
+
     public MyAccountPage(WebDriver driver) {
         super(driver);
     }

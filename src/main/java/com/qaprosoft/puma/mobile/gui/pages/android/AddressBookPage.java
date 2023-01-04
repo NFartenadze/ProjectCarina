@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 public class AddressBookPage extends AddressBookPageBase {
     @FindBy(id = "address-title-input")
     private ExtendedWebElement addressTitleField;
-    @FindBy(id = "address-form-country-select")
+    @FindBy(xpath = "//select[@id='address-form-country-select']")
     private ExtendedWebElement countrySelector;
     @FindBy(id = "firstName-input")
     private ExtendedWebElement firstNameField;
@@ -30,9 +30,9 @@ public class AddressBookPage extends AddressBookPageBase {
     private ExtendedWebElement mobileNumberField;
     @FindBy(id = "preferred-address")
     private ExtendedWebElement makeDefaultCheckbox;
-    @FindBy(xpath = "//android.view.View[2]//android.view.View/android.widget.Button")
+    @FindBy(xpath = "//button[@data-test-id='add-address-button']")
     private ExtendedWebElement saveBtn;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"BACK TO MY ACCOUNT\"]/android.view.View/android.widget.TextView[1]")
+    @FindBy(xpath = "//a[@data-test-id='back-to-account']")
     private ExtendedWebElement backToMyAccountBtn;
 
 

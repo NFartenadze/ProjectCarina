@@ -7,17 +7,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = LoginPageBase.class)
-public class LoginPage extends LoginPageBase{
-    @FindBy(id = "email")
+public class LoginPage extends LoginPageBase {
+    @FindBy(xpath = "//input[@data-test-id='auth-field-email']")
     private ExtendedWebElement emailField;
-    @FindBy(id = "password")
+    @FindBy(xpath = "//input[@data-test-id='auth-field-password-wrapper']")
     private ExtendedWebElement passwordField;
-    @FindBy(id = "rememberMe")
+    @FindBy(xpath = "//label[@data-test-id='auth-field-remember-me']")
     private ExtendedWebElement rememberMeCheckBox;
-    @FindBy(id = "login-submit")
+    @FindBy(xpath = "//button[@data-test-id='auth-button-login']")
     private ExtendedWebElement loginBtn;
-    @FindBy(xpath = "//android.view.View[3]/android.widget.Button[2]")
+    @FindBy(xpath = "//button[@data-test-id='forgotten-password-link']")
     private ExtendedWebElement forgotPasswordBtn;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }

@@ -7,4 +7,10 @@ public abstract class PumaHomePageBase extends AbstractPage {
     public PumaHomePageBase(WebDriver driver) {
         super(driver);
     }
+
+    public abstract void closeBanner();
+
+    public abstract void stayOnRegion();
+
+    public abstract void acceptCookie();
 }

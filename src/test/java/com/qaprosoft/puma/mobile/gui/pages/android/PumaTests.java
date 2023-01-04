@@ -2,7 +2,6 @@ package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.carina.core.foundation.utils.mobile.IMobileUtils;
-import com.qaprosoft.demo.demo.utils.MobileContextUtils;
 import com.qaprosoft.puma.mobile.gui.pages.common.MenuPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.NavigationBarBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.PumaHomePageBase;
@@ -15,7 +14,7 @@ import org.testng.annotations.Test;
 public class PumaTests implements IAbstractTest, IMobileUtils {
 
     @Test(groups = "android")
-    public void searchItem() throws InterruptedException {
+    public void searchItem() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
@@ -30,7 +29,7 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     }
 
     @Test(groups = "android")
-    public void registerNewAccount() throws InterruptedException {
+    public void registerNewAccount() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
@@ -55,27 +54,31 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     }
 
     @Test(groups = "android")
-    public void changeLanguage() throws InterruptedException {
+    public void changeLanguage() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
+        pumaHomePage.closeBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
         Assert.assertTrue(menuPage.isLanguagePresent(), "language isn't present");
         LanguagePageBase languagePage = menuPage.clickLanguage();
-        //panel items cannot be interacted with somehow
-//        languagePage.searchLanguage(States.ALABAMA);
-//        languagePage.selectLanguage();
+//        panel items cannot be interacted with somehow
+        languagePage.searchLanguage(States.ALABAMA);
+        languagePage.selectLanguage();
     }
 
     @Test(groups = "android")
     public void webContext() {
-        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
-        MobileContextUtils contextHelper = new MobileContextUtils();
-        contextHelper.switchMobileContext(MobileContextUtils.View.WEB);
-        NavigationBarBase navigationBar = new NavigationBar(getDriver());
+//        pumaHomePage.closeBanner();
+//        MobileContextUtils contextHelper = new MobileContextUtils();
+//        contextHelper.switchMobileContext(MobileContextUtils.View.WEB);
+
+        NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
         Assert.assertTrue(navigationBar.isSearchPresent(), "search isn't present");
+        navigationBar.openSearchPage();
     }
 
 }

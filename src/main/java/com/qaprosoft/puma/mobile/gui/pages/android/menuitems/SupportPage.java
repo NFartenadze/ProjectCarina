@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = SupportPageBase.class)
 public class SupportPage extends SupportPageBase {
-    @FindBy(xpath = "//android.view.View[@content-desc=\"customerservice.us@puma.com\"]/android.widget.TextView")
+    @FindBy(css = "a[href='mailto:customerservice.us@puma.com']")
     private ExtendedWebElement email;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"1-888-565-PUMA (7862)\"]")
+    @FindBy(css = "a[href=\"tel:1-888-565-7862\"]")
     private ExtendedWebElement number;
 
     public SupportPage(WebDriver driver) {

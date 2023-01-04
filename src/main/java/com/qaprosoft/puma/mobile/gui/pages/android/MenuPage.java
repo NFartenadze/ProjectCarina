@@ -11,38 +11,38 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = MenuPageBase.class)
 public class MenuPage extends MenuPageBase implements IMobileUtils {
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[1]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement giftGuide;
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[2]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement newArrivals;
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[3]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement women;
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[4]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement men;
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[5]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement kids;
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[6]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement collaborations;
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[7]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement sport;
-    @FindBy(xpath = "//android.view.View/android.view.MenuItem[8]")
+    @FindBy(xpath = "//")
     private ExtendedWebElement sale;
-    @FindBy(xpath = "//android.widget.ListView/android.view.MenuItem[1]")
+    @FindBy(xpath = "//a[contains(text(),'My Account')]")
     private ExtendedWebElement myAccount;
-    @FindBy(xpath = "//android.widget.ListView/android.view.MenuItem[2]")
+    @FindBy(xpath = "//a[contains(text(),'Initiate Return')]")
     private ExtendedWebElement initiateReturn;
-    @FindBy(xpath = "//android.widget.ListView/android.view.MenuItem[3]")
+    @FindBy(xpath = "//a[contains(text(),'Support')]")
     private ExtendedWebElement support;
-    @FindBy(xpath = "//android.widget.ListView/android.view.MenuItem[4]")
+    @FindBy(xpath = "//a[contains(text(),'Wishlist')]")
     private ExtendedWebElement wishList;
-    @FindBy(xpath = "//android.widget.ListView/android.view.View/android.widget.Button")
+    @FindBy(xpath = "//span[contains(text(),'Language')]")
     private ExtendedWebElement language;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"LOGIN\"]")
+    @FindBy(xpath = "//a[@data-test-id='login-button']")
     private ExtendedWebElement loginBtn;
-    @FindBy(xpath = "//android.view.View[@content-desc=\"REGISTER HERE\"]")
+    @FindBy(xpath = "//a[@data-test-id='register-button']")
     private ExtendedWebElement registerBtn;
-    @FindBy(className = "android.webkit.WebView")
-    private ExtendedWebElement container;
+//    @FindBy(className = "android.webkit.WebView")
+//    private ExtendedWebElement container;
 
     public MenuPage(WebDriver driver) {
         super(driver);
@@ -71,6 +71,7 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
     @Override
     public void clickWomen() {
         women.click();
+
     }
 
     @Override
@@ -203,7 +204,7 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
 
     @Override
     public boolean isRegistrationBtnPresent() {
-        swipe(registerBtn, container);
+//        swipe(registerBtn, container);
         return registerBtn.isElementPresent();
     }
 }
