@@ -19,7 +19,6 @@ public class LoginPage extends AbstractPage {
 
     public LoginPage(WebDriver driver) {
         super(driver);
-        setPageURL(getPageURL() + "");
     }
 
     public void clickLoginBtn() {

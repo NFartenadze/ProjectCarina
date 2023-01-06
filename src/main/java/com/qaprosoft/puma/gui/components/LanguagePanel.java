@@ -36,7 +36,7 @@ public class LanguagePanel extends AbstractPage {
     }
 
     public void typeInSearch(String s) {
-        searchButton.type(s);
+        searchField.type(s);
     }
 
     public void clickSearchButton() {

@@ -17,13 +17,13 @@ public class NavigationBar extends AbstractUIObject {
     private ExtendedWebElement men;
     @FindBy(xpath = "//div[@data-test-id='main-nav-bar']/ul//span[contains(text(),'Kids')]")
     private ExtendedWebElement kids;
-    @FindBy(xpath = "//button[@id = \"account-button\"]")
+    @FindBy(xpath = "//button[@id ='account-button']")
     private ExtendedWebElement accountButton;
-    @FindBy(xpath = "//input['data-test-id=\"search-box\"']")
+    @FindBy(xpath = "//input[@data-test-id='search-box']")
     private ExtendedWebElement searchBar;
     @FindBy(xpath = "//a[@data-link-name='Shoes']")
     private ExtendedWebElement shoesLink;
-    @FindBy(xpath = "//input[@type='search']/../div/button[@type='submit']")
+    @FindBy(xpath = "//button[@type='submit']")
     private ExtendedWebElement searchButton;
 
     public NavigationBar(WebDriver driver) {
@@ -55,7 +55,7 @@ public class NavigationBar extends AbstractUIObject {
     }
 
     public ResultPage clickSearch() {
-        searchBar.click();
+        searchButton.click();
 //        ResultPage resultPage = new ResultPage(getDriver());
 //        resultPage.searchBartPageURL(getPageURL() + searchBar.getText());
         return new ResultPage(getDriver());

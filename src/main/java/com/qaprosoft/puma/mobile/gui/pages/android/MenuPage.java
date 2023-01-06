@@ -41,8 +41,9 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
     private ExtendedWebElement loginBtn;
     @FindBy(xpath = "//a[@data-test-id='register-button']")
     private ExtendedWebElement registerBtn;
-    @FindBy(className = "android.webkit.WebView")
+    @FindBy(xpath = "//div[@role='menu']")
     private ExtendedWebElement container;
+
 
     public MenuPage(WebDriver driver) {
         super(driver);
@@ -198,14 +199,12 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
 
     @Override
     public RegistrationPageBase clickRegisterBtn() {
-        registerBtn.scrollTo();
         registerBtn.click();
         return initPage(getDriver(), RegistrationPageBase.class);
     }
 
     @Override
     public boolean isRegistrationBtnPresent() {
-        registerBtn.scrollTo();
         return registerBtn.isElementPresent();
     }
 }

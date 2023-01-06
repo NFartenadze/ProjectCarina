@@ -20,8 +20,6 @@ public class RegistrationPage extends AbstractPage {
     private ExtendedWebElement passwordField;
     @FindBy(xpath = "//button[@data-test-id='register']")
     private ExtendedWebElement registerButton;
-    @FindBy(css = "#cookie-banner-close-btn")
-    private ExtendedWebElement cookieCloserButton;
 
     public RegistrationPage(WebDriver driver) {
         super(driver);
@@ -36,13 +34,6 @@ public class RegistrationPage extends AbstractPage {
         return lastNameField.isElementPresent();
     }
 
-    public void closeCookie() {
-        cookieCloserButton.click();
-    }
-
-    public boolean isCookiePresent() {
-        return cookieCloserButton.isElementPresent();
-    }
 
     public boolean isEmailFieldPresent() {
         return emailField.isElementPresent();

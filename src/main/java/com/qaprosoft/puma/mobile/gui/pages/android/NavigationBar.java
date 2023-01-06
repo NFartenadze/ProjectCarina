@@ -3,16 +3,15 @@ package com.qaprosoft.puma.mobile.gui.pages.android;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.puma.mobile.gui.pages.common.*;
 import com.zebrunner.carina.utils.factory.DeviceType;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = NavigationBarBase.class)
-public class NavigationBar extends NavigationBarBase {
+public class NavigationBar extends NavigationBarBase implements IMobileUtils {
     //xpath from web browser
     @FindBy(xpath = "//button[@data-test-id='search-icon-nav']")
     private ExtendedWebElement searchIcon;
-    //    @FindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.widget.FrameLayout[2]/android.webkit.WebView/android.view.View[1]/android.view.View/android.view.View[3]/android.view.View/android.widget.Button[1]")
-//    private ExtendedWebElement searchIcon;
     @FindBy(id = "nav-wishlist-link")
     private ExtendedWebElement wishListIcon;
     @FindBy(id = "nav-cart-link")

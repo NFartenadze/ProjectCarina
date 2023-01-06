@@ -16,8 +16,6 @@ public class ResultPage extends AbstractPage {
     @FindBy(xpath = "//ul[@id='product-list-items']/li/div[3]/a/h3")
     private List<ExtendedWebElement> itemTitles;
 
-    @FindBy(css = "#cookie-banner-close-btn")
-    private ExtendedWebElement closeCookieButton;
 
     @FindBy(xpath = "//li[@data-test-id='product-list-item']")
     private List<ExtendedWebElement> items;
@@ -27,9 +25,6 @@ public class ResultPage extends AbstractPage {
         setPageURL("");
     }
 
-    public void closeCookiePanel() {
-        closeCookieButton.click();
-    }
 
     public void clickItem(int i) {
         items.get(i).scrollTo();

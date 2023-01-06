@@ -10,10 +10,15 @@ public class HomePage extends AbstractPage {
 
 //    private static final Logger logger = LogManager.getLogger(HomePage.class);
 
-    @FindBy(xpath = "//button[@data-test-id='location-check-stay-on-country']")
+    @FindBy(xpath = "//button[@data-test-id='stay-on-region-button']")
     private ExtendedWebElement stayOnRegion;
     @FindBy(xpath = "//div[@data-test-id='main-nav-bar']")
     private NavigationBar navigationBar;
+    @FindBy(css = "#cookie-banner-close-btn")
+    private ExtendedWebElement closeCookieButton;
+
+    @FindBy(css = "use[href='/_next/static/assets/icons/close.svg#icon']")
+    private ExtendedWebElement discountBtnClose;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -25,6 +30,17 @@ public class HomePage extends AbstractPage {
         stayOnRegion.click();
     }
 
+    public void fullScreen() {
+        driver.manage().window().fullscreen();
+    }
+
+    public void closeDiscountBtn() {
+        discountBtnClose.click();
+    }
+
+    public void closeCookiePanel() {
+        closeCookieButton.click();
+    }
 
     public NavigationBar getNavigationBar() {
         return navigationBar;
