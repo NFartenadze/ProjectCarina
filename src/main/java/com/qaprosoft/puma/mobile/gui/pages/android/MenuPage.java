@@ -177,6 +177,7 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
 
     @Override
     public LanguagePageBase clickLanguage() {
+        language.scrollTo();
         language.click();
         return initPage(getDriver(), LanguagePageBase.class);
     }
@@ -199,6 +200,7 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
 
     @Override
     public RegistrationPageBase clickRegisterBtn() {
+        registerBtn.scrollTo();
         registerBtn.click();
         return initPage(getDriver(), RegistrationPageBase.class);
     }

@@ -8,9 +8,14 @@ public abstract class PumaHomePageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract void closeBanner();
+    public abstract void closeCookiePanel();
 
     public abstract void stayOnRegion();
 
-    public abstract void acceptCookie();
+    public abstract void closeAppBanner();
+
+    public abstract void closeDiscountBtn();
+
+    //this method will close browser searchbar and won't interrupt MenuPage display
+    public abstract void swipeToContainer();
 }

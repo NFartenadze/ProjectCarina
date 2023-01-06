@@ -14,7 +14,8 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void searchItem() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
-//        pumaHomePage.stayOnRegion();
+        pumaHomePage.stayOnRegion();
+        pumaHomePage.closeCookiePanel();
 //        pumaHomePage.closeBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isSearchPresent(), "search bar isn't present");
@@ -30,10 +31,17 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void registerNewAccount() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
+        Assert.assertTrue(pumaHomePage.isPageOpened(), "page isn't opened");
+        pumaHomePage.stayOnRegion();
+        pumaHomePage.closeCookiePanel();
+        pumaHomePage.closeDiscountBtn();
+//        pumaHomePage.swipeToContainer();
+//        pumaHomePage.closeAppBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
         //PROBLEM: fields are sometimes found/not found
+
 //        Assert.assertTrue(menuPage.isRegistrationBtnPresent(), "Register button isn't present");
 
         RegistrationPageBase registrationPage = menuPage.clickRegisterBtn();
@@ -55,6 +63,9 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void changeLanguage() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
+        pumaHomePage.stayOnRegion();
+        pumaHomePage.closeCookiePanel();
+        pumaHomePage.closeDiscountBtn();
 //        pumaHomePage.closeBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
@@ -66,17 +77,5 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         languagePage.selectLanguage();
     }
 
-    @Test(groups = "android")
-    public void webContext() {
-//        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
-//        pumaHomePage.open();
-//        pumaHomePage.closeBanner();
-//        MobileContextUtils contextHelper = new MobileContextUtils();
-//        contextHelper.switchMobileContext(MobileContextUtils.View.WEB);
-//
-//        NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
-//        Assert.assertTrue(navigationBar.isSearchPresent(), "search isn't present");
-//        navigationBar.openSearchPage();
-    }
 
 }
