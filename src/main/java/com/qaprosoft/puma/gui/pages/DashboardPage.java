@@ -10,10 +10,10 @@ import org.openqa.selenium.support.FindBy;
 public class DashboardPage extends AbstractPage {
     private static final Logger logger = LogManager.getLogger(RegistrationPage.class);
 
-    @FindBy(xpath = "//a[@id = 'edit-profile-button']")
+    @FindBy(xpath = "//a[@id='edit-profile-button']")
     private ExtendedWebElement editProfile;
 
-    @FindBy(xpath = "//a[@id = 'edit-password-button']")
+    @FindBy(xpath = "//a[@id='edit-password-button']")
     private ExtendedWebElement editPassword;
 
     @FindBy(xpath = "//a[@data-test-id='add-new-address']")

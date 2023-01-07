@@ -2,17 +2,13 @@ package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.puma.mobile.gui.pages.common.PumaHomePageBase;
-import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = PumaHomePageBase.class)
 public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
-    @FindBy(id = "branch-banner-close1")
-    private ExtendedWebElement closeBannerBtn;
-    @FindBy(xpath = "//h2[contains(text(),'ACTIVEWEAR FOR YOUR NEW ROUTINE')]")
-    private ExtendedWebElement container;
+
+
     @FindBy(xpath = "//button[@data-test-id='stay-on-region-button']")
     private ExtendedWebElement stayOnRegionBtn;
     @FindBy(css = "#cookie-banner-close-btn")
@@ -31,11 +27,6 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
         stayOnRegionBtn.click();
     }
 
-    @Override
-    public void closeAppBanner() {
-        closeBannerBtn.click();
-    }
-
 
     @Override
     public void assertElementPresent(ExtendedWebElement extWebElement) {
@@ -52,8 +43,5 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
         closeCookieButton.click();
     }
 
-    @Override
-    public void swipeToContainer() {
-        container.scrollTo();
-    }
+
 }

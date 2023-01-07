@@ -11,11 +11,8 @@ public abstract class PumaHomePageBase extends AbstractPage {
     public abstract void closeCookiePanel();
 
     public abstract void stayOnRegion();
-
-    public abstract void closeAppBanner();
+    
 
     public abstract void closeDiscountBtn();
 
-    //this method will close browser searchbar and won't interrupt MenuPage display
-    public abstract void swipeToContainer();
 }

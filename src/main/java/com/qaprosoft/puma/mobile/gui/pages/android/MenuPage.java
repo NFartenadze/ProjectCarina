@@ -200,7 +200,7 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
 
     @Override
     public RegistrationPageBase clickRegisterBtn() {
-        registerBtn.scrollTo();
+        swipeUp(5);
         registerBtn.click();
         return initPage(getDriver(), RegistrationPageBase.class);
     }

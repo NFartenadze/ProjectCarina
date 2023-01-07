@@ -1,6 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
+import com.qaprosoft.puma.mobile.gui.pages.android.components.PumaAppFrame;
 import com.qaprosoft.puma.mobile.gui.pages.common.*;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LanguagePageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.RegistrationPageBase;
@@ -16,7 +17,9 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         pumaHomePage.open();
         pumaHomePage.stayOnRegion();
         pumaHomePage.closeCookiePanel();
-//        pumaHomePage.closeBanner();
+        pumaHomePage.closeDiscountBtn();
+        PumaAppFrame frame = new PumaAppFrame(getDriver());
+        frame.closeAppBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isSearchPresent(), "search bar isn't present");
         SearchPageBase searchPage = navigationBar.openSearchPage();
@@ -35,8 +38,8 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         pumaHomePage.stayOnRegion();
         pumaHomePage.closeCookiePanel();
         pumaHomePage.closeDiscountBtn();
-//        pumaHomePage.swipeToContainer();
-//        pumaHomePage.closeAppBanner();
+        PumaAppFrame frame = new PumaAppFrame(getDriver());
+        frame.closeAppBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
@@ -66,7 +69,8 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         pumaHomePage.stayOnRegion();
         pumaHomePage.closeCookiePanel();
         pumaHomePage.closeDiscountBtn();
-//        pumaHomePage.closeBanner();
+        PumaAppFrame frame = new PumaAppFrame(getDriver());
+        frame.closeAppBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
@@ -77,5 +81,24 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         languagePage.selectLanguage();
     }
 
+//    @Test
+//    public void debuggingMenuPage() {
+//        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+//        pumaHomePage.open();
+//        Assert.assertTrue(pumaHomePage.isPageOpened(), "page isn't opened");
+//        pumaHomePage.stayOnRegion();
+//        pumaHomePage.closeCookiePanel();
+//        pumaHomePage.closeDiscountBtn();
+//        PumaAppFrame frame = new PumaAppFrame(getDriver());
+//        frame.closeAppBanner();
+//
+//        NavigationBarBase navigationBar = new NavigationBar(getDriver());
+//        Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
+//        MenuPageBase menuPage = navigationBar.openMenuPage();
+//        //PROBLEM: fields are sometimes found/not found
+//        Assert.assertTrue(menuPage.isRegistrationBtnPresent(), "Register button isn't present");
+//        RegistrationPageBase registrationPage = menuPage.clickRegisterBtn();
+//
+//    }
 
 }
