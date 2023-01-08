@@ -1,10 +1,10 @@
-package com.qaprosoft.demo.zoommer.gui.pages;
+package com.qaprosoft.carina.zoommer.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.demo.zoommer.gui.components.Compare;
-import com.qaprosoft.demo.zoommer.gui.components.Language;
-import com.qaprosoft.demo.zoommer.gui.components.PhoneBrands;
+import com.qaprosoft.carina.zoommer.gui.components.Compare;
+import com.qaprosoft.carina.zoommer.gui.components.Language;
+import com.qaprosoft.carina.zoommer.gui.components.PhoneBrands;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -22,7 +22,6 @@ public class HomePage extends AbstractPage {
     private ExtendedWebElement selectLanguage;
 
 
-
     @FindBy(css = "div[id='eu-cookie-ok']")
     private ExtendedWebElement acceptCookie;
     @FindBy(xpath = "/html/body/div[7]/section/div[2]/div[1]/div[1]/div[2]/ul/li")
@@ -32,31 +31,33 @@ public class HomePage extends AbstractPage {
     private ExtendedWebElement brand;
 
 
-
-
     public HomePage(WebDriver driver) {
         super(driver);
         setPageURL("https://zoommer.ge");
     }
 
-    public boolean isCompareButtonPresent(){
+    public boolean isCompareButtonPresent() {
         return compareButton.isElementPresent();
     }
-    public Compare clickCompareButton(){
+
+    public Compare clickCompareButton() {
         compareButton.click();
         return new Compare(getDriver());
     }
-    public void hoverNavigationBarElement(int index){
+
+    public void hoverNavigationBarElement(int index) {
         navigationBar.get(index).hover();
     }
 
-    public void clickNavigationBarElement(int index){
+    public void clickNavigationBarElement(int index) {
         navigationBar.get(index).click();
     }
-    public boolean isBrandPresent(PhoneBrands br){
+
+    public boolean isBrandPresent(PhoneBrands br) {
         return brand.format(br.getPhoneBrand()).isElementPresent();
     }
-    public PhonesPage chooseBrand(PhoneBrands br){
+
+    public PhonesPage chooseBrand(PhoneBrands br) {
         brand.format(br.getPhoneBrand()).click();
         return new PhonesPage(getDriver());
     }
@@ -70,23 +71,25 @@ public class HomePage extends AbstractPage {
 //
 //    }
 
-    public void selectLanguage(Language lan){
+    public void selectLanguage(Language lan) {
         hoverLanguagesMenubutton();
         selectLanguage.format(lan.getLanguage()).click();
     }
-    public boolean isLanguagesMenuButtonPresent(){
+
+    public boolean isLanguagesMenuButtonPresent() {
         return languagesMenuButton.isElementPresent();
     }
 
-    public void hoverLanguagesMenubutton(){
+    public void hoverLanguagesMenubutton() {
         languagesMenuButton.hover();
     }
 
 
-    public boolean isAcceptCookiePresent(){
+    public boolean isAcceptCookiePresent() {
         return acceptCookie.isElementPresent();
     }
-    public void clickAcceptCookie(){
+
+    public void clickAcceptCookie() {
         acceptCookie.click();
     }
 }

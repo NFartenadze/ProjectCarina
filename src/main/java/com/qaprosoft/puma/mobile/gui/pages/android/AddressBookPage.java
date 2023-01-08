@@ -41,8 +41,8 @@ public class AddressBookPage extends AddressBookPageBase {
     }
 
     @Override
-    public void selectState(States state) {
-        stateSelector.select(state.getState());
+    public void selectState(Countries country) {
+        stateSelector.select(country.getCountry());
     }
 
     @Override

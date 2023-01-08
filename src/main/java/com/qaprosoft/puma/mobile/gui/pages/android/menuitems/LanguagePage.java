@@ -1,7 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.android.menuitems;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.puma.mobile.gui.pages.android.States;
+import com.qaprosoft.puma.mobile.gui.pages.android.Countries;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LanguagePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
@@ -28,9 +28,9 @@ public class LanguagePage extends LanguagePageBase {
     }
 
     @Override
-    public void searchLanguage(States state) {
+    public void searchLanguage(Countries country) {
         searchField.click();
-        searchField.type(state.getState());
+        searchField.type(country.getCountry());
     }
 
     @Override

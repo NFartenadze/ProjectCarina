@@ -1,8 +1,8 @@
-package com.qaprosoft.demo.zoommer.gui.pages;
+package com.qaprosoft.carina.zoommer.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.demo.zoommer.gui.components.Compare;
+import com.qaprosoft.carina.zoommer.gui.components.Compare;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -27,38 +27,44 @@ public class ComparePage extends AbstractPage {
         setPageURL("https://zoommer.ge/compareproducts");
     }
 
-    public boolean isAddDeviceButtonPresent(){
+    public boolean isAddDeviceButtonPresent() {
         return addDeviceButton.isElementPresent();
     }
-    public boolean isShowDifferencesButtonPresent(){
+
+    public boolean isShowDifferencesButtonPresent() {
         return showDifferencesButton.isElementPresent();
     }
-    public boolean isSelectRussianPresent(){
+
+    public boolean isSelectRussianPresent() {
         return selectRussian.isElementPresent();
     }
 
-    public boolean isLanguagesMenuButtonPresent(){
+    public boolean isLanguagesMenuButtonPresent() {
         return languagesMenuButton.isElementPresent();
     }
 
-    public void hoverLanguagesMenubutton(){
+    public void hoverLanguagesMenubutton() {
         languagesMenuButton.hover();
     }
-    public void clickSelectRussian(){
+
+    public void clickSelectRussian() {
         selectRussian.click();
     }
 
-    public Compare clickAddDeviceButton(){
+    public Compare clickAddDeviceButton() {
         addDeviceButton.click();
         return new Compare(getDriver());
     }
-    public void clickShowDifferencesButton(){
+
+    public void clickShowDifferencesButton() {
         showDifferencesButton.click();
     }
-    public boolean isAcceptCookiePresent(){
+
+    public boolean isAcceptCookiePresent() {
         return acceptCookie.isElementPresent();
     }
-    public void clickAcceptCookie(){
+
+    public void clickAcceptCookie() {
         acceptCookie.click();
     }
 }

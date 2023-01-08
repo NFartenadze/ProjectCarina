@@ -16,7 +16,6 @@ public class PumaAppFrame extends AbstractPage {
     }
 
     public void closeAppBanner() {
-        PumaAppFrame frame = new PumaAppFrame(getDriver());
         driver.switchTo().frame(iframe.getElement());
         closeBannerBtn.click();
         getDriver().switchTo().defaultContent();

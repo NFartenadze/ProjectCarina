@@ -17,7 +17,7 @@ public class RegistrationPage extends RegistrationPageBase implements IMobileUti
     private ExtendedWebElement emailField;
     @FindBy(xpath = "//input[@data-test-id='password']")
     private ExtendedWebElement passwordField;
-    @FindBy(xpath = "//input[@name='emailList']")
+    @FindBy(xpath = "//label[@data-test-id='email-list']")
     private ExtendedWebElement addToEmailListCheckBox;
     @FindBy(xpath = "//button[@data-test-id='register']")
     private ExtendedWebElement registerBtn;
@@ -68,7 +68,7 @@ public class RegistrationPage extends RegistrationPageBase implements IMobileUti
 
     @Override
     public void checkAddToMailingList() {
-        addToEmailListCheckBox.check();
+        addToEmailListCheckBox.click();
     }
 
     @Override

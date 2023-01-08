@@ -17,6 +17,8 @@ public class ResultPage extends ResultPageBase {
 
     @FindBy(xpath = "//ul[@id='product-list-items']/li/div[3]/a/h3")
     private List<ExtendedWebElement> itemTitles;
+    @FindBy(xpath = "//ul[@id='product-list-items']")
+    private ExtendedWebElement itemContainer;
     @FindBy(xpath = "//li[@data-test-id='product-list-item']")
     private List<ExtendedWebElement> items;
 
@@ -28,6 +30,11 @@ public class ResultPage extends ResultPageBase {
     public void printResultItemTexts() {
         itemTitles
                 .forEach(e -> logger.info(e.getText()));
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return itemContainer.isElementPresent();
     }
 
 

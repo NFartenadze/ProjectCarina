@@ -1,4 +1,4 @@
-package com.qaprosoft.demo.practise.gui.pages;
+package com.qaprosoft.carina.practise.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
@@ -19,23 +19,27 @@ public class LoginPage extends AbstractPage {
         super(driver);
     }
 
-    public boolean isUserIdInputFieldPresent(){
+    public boolean isUserIdInputFieldPresent() {
         return userIdInputField.isElementPresent();
     }
 
-    public boolean isUserPasswordInputFieldPresent(){
+    public boolean isUserPasswordInputFieldPresent() {
         return userPasswordInputField.isElementPresent();
     }
-    public boolean isLoginButtonPresent(){
+
+    public boolean isLoginButtonPresent() {
         return loginButton.isElementPresent();
     }
-    public void userIdInputFieldType(String keys){
+
+    public void userIdInputFieldType(String keys) {
         userIdInputField.type(keys);
     }
-    public void userPasswordInputFieldType(String keys){
+
+    public void userPasswordInputFieldType(String keys) {
         userPasswordInputField.type(keys);
     }
-    public void clickLoginButton(){
+
+    public void clickLoginButton() {
         loginButton.click();
     }
 }

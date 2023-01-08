@@ -1,12 +1,10 @@
-package com.qaprosoft.demo.nerdwallet.gui.components;
+package com.qaprosoft.carina.nerdwallet.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
-
-import java.awt.*;
 
 public class ComparisonTab extends AbstractUIObject {
 
@@ -69,20 +67,23 @@ public class ComparisonTab extends AbstractUIObject {
     }
 
 
-    public boolean isPresentInComparisonTab(ComparisonItems c){
+    public boolean isPresentInComparisonTab(ComparisonItems c) {
         return chooseItem.format(c.getChosenItem()).isElementPresent();
     }
 
-    public boolean isPanelPresent(Panels p){
+    public boolean isPanelPresent(Panels p) {
         return panel.format(p.getChosenPanel()).isElementPresent();
     }
-    public void chooseToCompare(ComparisonItems c){
+
+    public void chooseToCompare(ComparisonItems c) {
         chooseItem.format(c.getChosenItem()).click();
     }
-    public boolean isCompareButtonPresent(Panels p){
+
+    public boolean isCompareButtonPresent(Panels p) {
         return compareButton.format(p.getChosenPanel()).isElementPresent();
     }
-    public void clickCompareButton(Panels p){
+
+    public void clickCompareButton(Panels p) {
         compareButton.format(p.getChosenPanel()).click();
     }
 }

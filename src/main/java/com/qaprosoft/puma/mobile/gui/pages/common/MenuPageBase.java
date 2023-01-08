@@ -1,6 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.common;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.puma.mobile.gui.pages.android.components.Sections;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.*;
 import org.openqa.selenium.WebDriver;
 
@@ -9,37 +10,9 @@ public abstract class MenuPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract void clickGiftGuide();
+    public abstract boolean isSectionPresent(Sections s);
 
-    public abstract boolean isGiftGuidePresent();
-
-    public abstract void clickNewArrivals();
-
-    public abstract boolean isNewArrivalsPresent();
-
-    public abstract void clickWomen();
-
-    public abstract boolean isWomenPresent();
-
-    public abstract void clickMen();
-
-    public abstract boolean isMenPresent();
-
-    public abstract void clickKids();
-
-    public abstract boolean isKidsPresent();
-
-    public abstract void clickCollaborations();
-
-    public abstract boolean isCollaborationsPresent();
-
-    public abstract void clickSport();
-
-    public abstract boolean isSportPresent();
-
-    public abstract void clickSale();
-
-    public abstract boolean isSalePresent();
+    public abstract void navigateToSection(Sections s);
 
     public abstract MyAccountPageBase clickMyAccount();
 

@@ -1,4 +1,4 @@
-package com.qaprosoft.demo.zoommer.gui.components;
+package com.qaprosoft.carina.zoommer.gui.components;
 
 public enum Language {
     RUSSIAN("RUSSIAN"),
@@ -7,11 +7,11 @@ public enum Language {
 
     private String lan;
 
-    Language(String lan){
+    Language(String lan) {
         this.lan = lan;
     }
 
-    public String getLanguage(){
+    public String getLanguage() {
         return lan;
     }
 }

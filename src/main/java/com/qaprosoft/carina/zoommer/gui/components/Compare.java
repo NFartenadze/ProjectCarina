@@ -1,8 +1,8 @@
-package com.qaprosoft.demo.zoommer.gui.components;
+package com.qaprosoft.carina.zoommer.gui.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractUIObject;
-import com.qaprosoft.demo.zoommer.gui.pages.ComparePage;
+import com.qaprosoft.carina.zoommer.gui.pages.ComparePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -12,11 +12,10 @@ public class Compare extends AbstractUIObject {
     private ExtendedWebElement addProductButton;
 
 
-
-    @FindBy(className= "comp-product-start")
+    @FindBy(className = "comp-product-start")
     private ExtendedWebElement startCompareButton;
 
-    @FindBy(xpath= "/html/body/div[8]/div/div[3]/input")
+    @FindBy(xpath = "/html/body/div[8]/div/div[3]/input")
     private ExtendedWebElement deviceSearchBar;
 
     //samsung galaxy s22
@@ -26,41 +25,49 @@ public class Compare extends AbstractUIObject {
     //iphone 14
     @FindBy(css = "div[data-product-id='16142']")
     private ExtendedWebElement searchedIphone;
+
     public Compare(WebDriver driver) {
         super(driver);
     }
 
-    public boolean isSearchedIphonePresent(){
+    public boolean isSearchedIphonePresent() {
         return searchedIphone.isElementPresent();
     }
 
-    public boolean isStartCompareButtonPresent(){
+    public boolean isStartCompareButtonPresent() {
         return startCompareButton.isElementPresent();
     }
-    public ComparePage clickStartCompareButton(){
+
+    public ComparePage clickStartCompareButton() {
         startCompareButton.click();
         return new ComparePage(getDriver());
     }
 
-    public void chooseSearchedIphone(){
+    public void chooseSearchedIphone() {
         searchedIphone.click();
     }
-    public boolean isSearchedSamsungPresent(){
+
+    public boolean isSearchedSamsungPresent() {
         return searchedSamsung.isElementPresent();
     }
-    public boolean isAddProductButtonPresent(){
+
+    public boolean isAddProductButtonPresent() {
         return addProductButton.isElementPresent();
     }
-    public boolean isDeviceSearchBarPresent(){
+
+    public boolean isDeviceSearchBarPresent() {
         return deviceSearchBar.isElementPresent();
     }
-    public void chooseSearchedSamsung(){
+
+    public void chooseSearchedSamsung() {
         searchedSamsung.click();
     }
-    public void deviceSearchBarType(String keys){
+
+    public void deviceSearchBarType(String keys) {
         deviceSearchBar.type(keys);
     }
-    public void clickAddProductButton(){
+
+    public void clickAddProductButton() {
         addProductButton.click();
     }
 

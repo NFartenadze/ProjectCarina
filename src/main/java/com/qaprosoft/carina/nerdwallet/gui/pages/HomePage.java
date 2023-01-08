@@ -1,7 +1,7 @@
-package com.qaprosoft.demo.nerdwallet.gui.pages;
+package com.qaprosoft.carina.nerdwallet.gui.pages;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.demo.nerdwallet.gui.components.ComparisonTab;
+import com.qaprosoft.carina.nerdwallet.gui.components.ComparisonTab;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
@@ -16,7 +16,7 @@ public class HomePage extends AbstractPage {
         setPageURL("https://www.nerdwallet.com/?trk=nw_gn_5.0");
     }
 
-    public ComparisonTab getComparisonTab(){
+    public ComparisonTab getComparisonTab() {
         return comparisonTab;
     }
 

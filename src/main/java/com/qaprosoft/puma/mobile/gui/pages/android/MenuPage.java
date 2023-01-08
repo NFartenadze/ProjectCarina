@@ -1,6 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.puma.mobile.gui.pages.android.components.Sections;
 import com.qaprosoft.puma.mobile.gui.pages.common.MenuPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.WishListPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.*;
@@ -11,22 +12,9 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = MenuPageBase.class)
 public class MenuPage extends MenuPageBase implements IMobileUtils {
-    @FindBy(xpath = "//")
-    private ExtendedWebElement giftGuide;
-    @FindBy(xpath = "//")
-    private ExtendedWebElement newArrivals;
-    @FindBy(xpath = "//")
-    private ExtendedWebElement women;
-    @FindBy(xpath = "//")
-    private ExtendedWebElement men;
-    @FindBy(xpath = "//")
-    private ExtendedWebElement kids;
-    @FindBy(xpath = "//")
-    private ExtendedWebElement collaborations;
-    @FindBy(xpath = "//")
-    private ExtendedWebElement sport;
-    @FindBy(xpath = "//")
-    private ExtendedWebElement sale;
+
+    @FindBy(xpath = "//button[@data-link-name='%s']")
+    private ExtendedWebElement section;
     @FindBy(xpath = "//a[contains(text(),'My Account')]")
     private ExtendedWebElement myAccount;
     @FindBy(xpath = "//a[contains(text(),'Initiate Return')]")
@@ -50,85 +38,15 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
     }
 
     @Override
-    public void clickGiftGuide() {
-        giftGuide.click();
+    public boolean isSectionPresent(Sections s) {
+        return section.format(s.getSection()).isElementPresent();
     }
 
     @Override
-    public boolean isGiftGuidePresent() {
-        return giftGuide.isElementPresent();
+    public void navigateToSection(Sections s) {
+        section.format(s.getSection()).click();
     }
 
-    @Override
-    public void clickNewArrivals() {
-        newArrivals.click();
-    }
-
-    @Override
-    public boolean isNewArrivalsPresent() {
-        return newArrivals.isElementPresent();
-    }
-
-    @Override
-    public void clickWomen() {
-        women.click();
-
-    }
-
-    @Override
-    public boolean isWomenPresent() {
-        return women.isElementPresent();
-    }
-
-    @Override
-    public void clickMen() {
-        men.click();
-    }
-
-    @Override
-    public boolean isMenPresent() {
-        return men.isElementPresent();
-    }
-
-    @Override
-    public void clickKids() {
-        kids.click();
-    }
-
-    @Override
-    public boolean isKidsPresent() {
-        return kids.isElementPresent();
-    }
-
-    @Override
-    public void clickCollaborations() {
-        collaborations.click();
-    }
-
-    @Override
-    public boolean isCollaborationsPresent() {
-        return collaborations.isElementPresent();
-    }
-
-    @Override
-    public void clickSport() {
-        sport.click();
-    }
-
-    @Override
-    public boolean isSportPresent() {
-        return sport.isElementPresent();
-    }
-
-    @Override
-    public void clickSale() {
-        sale.click();
-    }
-
-    @Override
-    public boolean isSalePresent() {
-        return sale.isElementPresent();
-    }
 
     @Override
     public MyAccountPageBase clickMyAccount() {

@@ -1,4 +1,4 @@
-package com.qaprosoft.demo.practise.gui.pages;
+package com.qaprosoft.carina.practise.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
@@ -23,34 +23,39 @@ public class HomePage extends AbstractPage {
         super(driver);
         setPageURL("https://portal.bsu.edu.ge/");
     }
-    public boolean isSideBarButtonPresent(){
+
+    public boolean isSideBarButtonPresent() {
         return sideBarButton.isElementPresent();
     }
-    public void clickSideBarButton(){
+
+    public void clickSideBarButton() {
         sideBarButton.click();
     }
-    public boolean isLoginButtonPresent(){
+
+    public boolean isLoginButtonPresent() {
         return loginButton.isElementPresent();
     }
-    public void clickLoginButton(){
+
+    public void clickLoginButton() {
         loginButton.click();
     }
 
-    public boolean isStudentButtonPresent(){
+    public boolean isStudentButtonPresent() {
         return studentButton.isElementPresent();
     }
-    public boolean isChangeLanguageToEnglishPresent(){
+
+    public boolean isChangeLanguageToEnglishPresent() {
         return changeLanguageToEnglishIcon.isElementPresent();
     }
-    public void clickChangeLanguageToEnglishIcon(){
+
+    public void clickChangeLanguageToEnglishIcon() {
         changeLanguageToEnglishIcon.click();
     }
-    public LoginPage clickStudentButton(){
+
+    public LoginPage clickStudentButton() {
         studentButton.click();
         return new LoginPage(getDriver());
     }
-
-
 
 
 }
