@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 public class PumaTests implements IAbstractTest, IMobileUtils {
 
+
     @Test(groups = "android")
     public void searchItem() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());

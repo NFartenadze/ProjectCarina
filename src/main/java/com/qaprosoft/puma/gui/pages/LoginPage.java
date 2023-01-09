@@ -1,31 +1,33 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LoginPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends AbstractPage {
-    @FindBy(xpath = "//input[@id=\"email\"]")
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = LoginPageBase.class)
+public class LoginPage extends LoginPageBase {
+    @FindBy(xpath = "//input[@id='email']")
     private ExtendedWebElement loginField;
-    @FindBy(xpath = "//input[@id=\"password\"]")
+    @FindBy(xpath = "//input[@id='password']")
     private ExtendedWebElement passwordField;
-    @FindBy(xpath = "//input[@id=\"rememberMe\"]")
+    @FindBy(xpath = "//input[@id='rememberMe']")
     private ExtendedWebElement rememberCredentialsCheckbox;
-    @FindBy(xpath = "//button[@id=\"login-submit\"]")
+    @FindBy(xpath = "//button[@id='login-submit']")
     private ExtendedWebElement loginBtn;
-    @FindBy(xpath = "//button[@data-test-id=\"forgotten-password-link\"]")
+    @FindBy(xpath = "//button[@data-test-id='forgotten-password-link']")
     private ExtendedWebElement forgotPasswordBtn;
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
-    public void clickLoginBtn() {
+    public void clickLogin() {
         loginBtn.click();
     }
 
-    public void typeLogin(String s) {
+    public void typeEmail(String s) {
         loginField.type(s);
     }
 
@@ -33,11 +35,11 @@ public class LoginPage extends AbstractPage {
         passwordField.type(s);
     }
 
-    public void checkRememberCredentials() {
+    public void checkRememberMe() {
         rememberCredentialsCheckbox.check();
     }
 
-    public void clickForgotPasswordBtn() {
+    public void clickForgottenPassword() {
         forgotPasswordBtn.click();
     }
 
@@ -45,11 +47,11 @@ public class LoginPage extends AbstractPage {
         return loginBtn.isElementPresent();
     }
 
-    public boolean isForgotPasswordBtnPresent() {
+    public boolean isForgotPasswordPresent() {
         return forgotPasswordBtn.isElementPresent();
     }
 
-    public boolean isRememberCredentialsCheckboxPresent() {
+    public boolean isRememberMeCheckboxPresent() {
         return rememberCredentialsCheckbox.isElementPresent();
     }
 
@@ -57,7 +59,7 @@ public class LoginPage extends AbstractPage {
         return passwordField.isElementPresent();
     }
 
-    public boolean isLoginFieldPresent() {
+    public boolean isEmailFieldPresent() {
         return loginField.isElementPresent();
     }
 

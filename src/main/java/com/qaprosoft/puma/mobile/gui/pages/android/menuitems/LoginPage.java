@@ -13,7 +13,7 @@ public class LoginPage extends LoginPageBase {
     @FindBy(xpath = "//input[@data-test-id='auth-field-password-wrapper']")
     private ExtendedWebElement passwordField;
     @FindBy(xpath = "//label[@data-test-id='auth-field-remember-me']")
-    private ExtendedWebElement rememberMeCheckBox;
+    private ExtendedWebElement rememberCredentialsCheckBox;
     @FindBy(xpath = "//button[@data-test-id='auth-button-login']")
     private ExtendedWebElement loginBtn;
     @FindBy(xpath = "//button[@data-test-id='forgotten-password-link']")
@@ -45,12 +45,12 @@ public class LoginPage extends LoginPageBase {
 
     @Override
     public void checkRememberMe() {
-        rememberMeCheckBox.check();
+        rememberCredentialsCheckBox.check();
     }
 
     @Override
     public boolean isRememberMeCheckboxPresent() {
-        return rememberMeCheckBox.isElementPresent();
+        return rememberCredentialsCheckBox.isElementPresent();
     }
 
     @Override

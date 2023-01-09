@@ -1,12 +1,12 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.puma.gui.components.NavigationBar;
+import com.qaprosoft.puma.mobile.gui.pages.common.PumaHomePageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends AbstractPage {
+public class HomePage extends PumaHomePageBase {
 
 //    private static final Logger logger = LogManager.getLogger(HomePage.class);
 
@@ -26,7 +26,7 @@ public class HomePage extends AbstractPage {
     }
 
 
-    public void clickStayOnRegion() {
+    public void stayOnRegion() {
         stayOnRegion.click();
     }
 

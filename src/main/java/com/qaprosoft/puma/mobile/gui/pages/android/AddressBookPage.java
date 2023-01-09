@@ -1,6 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.puma.gui.components.States;
 import com.qaprosoft.puma.mobile.gui.pages.common.AddressBookPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
@@ -41,8 +42,8 @@ public class AddressBookPage extends AddressBookPageBase {
     }
 
     @Override
-    public void selectState(Countries country) {
-        stateSelector.select(country.getCountry());
+    public void selectState(States state) {
+        stateSelector.select(state.getState());
     }
 
     @Override

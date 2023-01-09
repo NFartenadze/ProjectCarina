@@ -1,13 +1,14 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.puma.mobile.gui.pages.common.AddressBookPageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.MyAccountPageBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class DashboardPage extends AbstractPage {
+public class MyAccountPage extends MyAccountPageBase {
     private static final Logger logger = LogManager.getLogger(RegistrationPage.class);
 
     @FindBy(xpath = "//a[@id='edit-profile-button']")
@@ -18,18 +19,32 @@ public class DashboardPage extends AbstractPage {
 
     @FindBy(xpath = "//a[@data-test-id='add-new-address']")
     private ExtendedWebElement addNew;
+    @FindBy(xpath = "//button[@data-test-id='account-logout-button']")
+    private ExtendedWebElement logoutBtn;
 
-    public DashboardPage(WebDriver driver) {
+    public MyAccountPage(WebDriver driver) {
         super(driver);
         setPageURL("");
     }
 
-    public AddressBookPage clickAddNew() {
-        addNew.click();
-        return new AddressBookPage(getDriver());
+    @Override
+    public void clickLogout() {
+        logoutBtn.click();
     }
 
-    public void clickEditPassword() {
+    @Override
+    public boolean isLogoutPresent() {
+        return logoutBtn.isElementPresent();
+    }
+
+
+    public AddressBookPageBase clickAddNew() {
+        addNew.click();
+        return initPage(getDriver(), AddressBookPageBase.class);
+    }
+
+    @Override
+    public void clickChangePassword() {
         editPassword.click();
     }
 
@@ -42,11 +57,11 @@ public class DashboardPage extends AbstractPage {
         return editProfile.isElementPresent();
     }
 
-    public boolean isEditPasswordPresent() {
+    public boolean isChangePasswordPresent() {
         return editPassword.isElementPresent();
     }
 
-    public boolean isAddNewPresent() {
+    public boolean isAddNewBtnPresent() {
         return addNew.isElementPresent();
     }
 

@@ -18,7 +18,7 @@ public class Puma implements IAbstractTest {
         homePage.open();
         homePage.fullScreen();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
-        homePage.clickStayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         NavigationBar navigationBar = new NavigationBar(getDriver());
@@ -38,7 +38,7 @@ public class Puma implements IAbstractTest {
         homePage.open();
         homePage.fullScreen();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
-        homePage.clickStayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         NavigationBar navigationBar = new NavigationBar(getDriver());
@@ -46,7 +46,7 @@ public class Puma implements IAbstractTest {
         navigationBar.typeInSearchBar("shoes");
         navigationBar.clickSearch();
         ResultPage resultPage = new ResultPage(getDriver());
-        resultPage.clickItem(0);
+        resultPage.selectSearchedItem(0);
         ItemPage itemPage = new ItemPage(getDriver());
         itemPage.addToCart();
 //            Screenshot.takeScreenshot(getDriver());
@@ -57,7 +57,7 @@ public class Puma implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
 //            Assert.assertTrue(homePage.isPageOpened(),"home page isn't opened");
-        homePage.clickStayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         //accessing navbar
@@ -88,7 +88,7 @@ public class Puma implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
-        homePage.clickStayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         NavigationBar navigationBar = new NavigationBar(getDriver());
@@ -104,7 +104,7 @@ public class Puma implements IAbstractTest {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
 //            Assert.assertTrue(homePage.isPageOpened(),"home page isn't opened");
-        homePage.clickStayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         //accessing navigation bar

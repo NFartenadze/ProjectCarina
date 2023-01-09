@@ -1,18 +1,17 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.puma.gui.components.States;
+import com.qaprosoft.puma.mobile.gui.pages.android.Countries;
+import com.qaprosoft.puma.mobile.gui.pages.common.AddressBookPageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
-
-public class AddressBookPage extends AbstractPage {
+public class AddressBookPage extends AddressBookPageBase {
     @FindBy(xpath = "//input[@id='address-title-input']")
     private ExtendedWebElement addressTitleField;
-    @FindBy(xpath = "//select[@id='address-form-country-select']/option")
-    private List<ExtendedWebElement> country;
+    @FindBy(xpath = "//select[@id='address-form-country-select']")
+    private ExtendedWebElement country;
     @FindBy(xpath = "//input[@id='firstName-input']")
     private ExtendedWebElement firstName;
     @FindBy(xpath = "//input[@id='lastName-input']")
@@ -75,9 +74,7 @@ public class AddressBookPage extends AbstractPage {
     public void typeLastName(String s) {
         lastName.type(s);
     }
-//    public boolean isStatePresent(States s){
-//        return true;
-//    }
+
 
     public boolean isFirstNameFieldPresent() {
         return firstName.isElementPresent();
@@ -158,23 +155,15 @@ public class AddressBookPage extends AbstractPage {
         checkMakeDefault();
     }
 
-    public void selectCountry(int i) {
-        country.get(i).click();
-        country.get(i).click();
+    @Override
+    public boolean isCountrySelectorPresent() {
+        return country.isElementPresent();
     }
 
-    public enum Countries {
-        UNITED_STATES(1),
-        CANADA(2);
-        private int country;
-
-        Countries(int country) {
-            this.country = country;
-        }
-
-        public int getCountry() {
-            return country;
-        }
+    @Override
+    public void selectCountry(String s) {
+        country.select(s);
     }
+
 
 }

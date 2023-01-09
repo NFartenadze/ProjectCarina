@@ -1,11 +1,13 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class ItemPage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = ItemPageBase.class)
+public class ItemPage extends ItemPageBase {
     @FindBy(xpath = "//button[@data-test-id='pdp-add-to-cart']")
     private ExtendedWebElement cartButton;
 

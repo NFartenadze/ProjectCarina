@@ -1,7 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.common;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.puma.mobile.gui.pages.android.Countries;
+import com.qaprosoft.puma.gui.components.States;
 import org.openqa.selenium.WebDriver;
 
 public abstract class AddressBookPageBase extends AbstractPage {
@@ -9,7 +9,7 @@ public abstract class AddressBookPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract void selectState(Countries state);
+    public abstract void selectState(States state);
 
     public abstract boolean isPhoneNumberFieldPresent();
 

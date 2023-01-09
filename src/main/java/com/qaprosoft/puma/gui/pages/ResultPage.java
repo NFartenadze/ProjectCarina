@@ -1,7 +1,9 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.puma.mobile.gui.pages.common.ResultPageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -9,7 +11,8 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class ResultPage extends AbstractPage {
+@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = ResultPageBase.class)
+public class ResultPage extends ResultPageBase {
 
     private static final Logger logger = LogManager.getLogger(ResultPage.class);
 
@@ -26,9 +29,10 @@ public class ResultPage extends AbstractPage {
     }
 
 
-    public void clickItem(int i) {
+    public ItemPageBase selectSearchedItem(int i) {
         items.get(i).scrollTo();
         items.get(i).click();
+        return initPage(getDriver(), ItemPageBase.class);
     }
 
     public void printResultItemTexts() {
