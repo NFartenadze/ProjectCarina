@@ -3,7 +3,6 @@ package com.qaprosoft.puma.gui.pages;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.puma.mobile.gui.pages.common.ResultPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
-import com.zebrunner.carina.utils.factory.DeviceType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +10,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-@DeviceType(pageType = DeviceType.Type.DESKTOP, parentClass = ResultPageBase.class)
 public class ResultPage extends ResultPageBase {
 
     private static final Logger logger = LogManager.getLogger(ResultPage.class);
