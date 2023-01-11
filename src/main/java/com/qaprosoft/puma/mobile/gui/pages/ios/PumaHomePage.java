@@ -15,7 +15,7 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
     private ExtendedWebElement navigationBar;
     @ExtendedFindBy(iosClassChain = "")
     private ExtendedWebElement stayOnRegionBtn;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == 'Close'`]")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Close\"`]")
     private ExtendedWebElement closeCookieButton;
 
     @ExtendedFindBy(iosClassChain = "")

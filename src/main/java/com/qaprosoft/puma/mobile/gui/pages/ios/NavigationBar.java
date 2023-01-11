@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = NavigationBarBase.class)
 public class NavigationBar extends NavigationBarBase implements IMobileUtils {
     //xpath from web browser
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == 'Search'`]")
     private ExtendedWebElement searchIcon;
     @ExtendedFindBy(iosClassChain = "")
     private ExtendedWebElement wishListIcon;

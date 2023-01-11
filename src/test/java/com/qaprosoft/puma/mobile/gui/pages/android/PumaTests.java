@@ -19,6 +19,9 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         pumaHomePage.open();
         Assert.assertTrue(pumaHomePage.isPageOpened(), "puma home page isn't opened");
         pumaHomePage.closeCookiePanel();
+        NavigationBarBase navigationBar = pumaHomePage.getNavigationBar();
+        Assert.assertTrue(navigationBar.isSearchPresent(), "search icon isn't present");
+        navigationBar.openSearchPage();
     }
 
 
