@@ -1,24 +1,24 @@
 package com.qaprosoft.puma.mobile.gui.pages.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.foundation.webdriver.decorator.annotations.Predicate;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
+import com.qaprosoft.puma.mobile.gui.pages.common.NavigationBarBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.PumaHomePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = PumaHomePageBase.class)
 public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
 
-
-    @FindBy(xpath = "//button[@data-test-id='stay-on-region-button']")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'Main Navigation, navigation'`]")
+    private ExtendedWebElement navigationBar;
+    @ExtendedFindBy(iosClassChain = "")
     private ExtendedWebElement stayOnRegionBtn;
-    @FindBy(id = "cookie-banner-close-btn")
-    @Predicate
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == 'Close'`]")
     private ExtendedWebElement closeCookieButton;
 
-    @FindBy(css = "use[href='/_next/static/assets/icons/close.svg#icon']")
+    @ExtendedFindBy(iosClassChain = "")
     private ExtendedWebElement discountBtnClose;
 
     public PumaHomePage(WebDriver driver) {
@@ -33,11 +33,6 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
 
 
     @Override
-    public void assertElementPresent(ExtendedWebElement extWebElement) {
-        super.assertElementPresent(extWebElement);
-    }
-
-    @Override
     public void closeDiscountBtn() {
         discountBtnClose.click();
     }
@@ -45,6 +40,16 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
     @Override
     public void closeCookiePanel() {
         closeCookieButton.click();
+    }
+
+    @Override
+    public NavigationBarBase getNavigationBar() {
+        return initPage(getDriver(), NavigationBarBase.class);
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return navigationBar.isElementPresent();
     }
 
 

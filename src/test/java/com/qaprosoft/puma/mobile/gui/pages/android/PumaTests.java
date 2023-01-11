@@ -13,6 +13,14 @@ import org.testng.annotations.Test;
 
 public class PumaTests implements IAbstractTest, IMobileUtils {
 
+    @Test(groups = "ios")
+    public void iosPractise() {
+        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
+        pumaHomePage.open();
+        Assert.assertTrue(pumaHomePage.isPageOpened(), "puma home page isn't opened");
+        pumaHomePage.closeCookiePanel();
+    }
+
 
     @Test(groups = "android")
     public void searchItem() {

@@ -1,6 +1,7 @@
 package com.qaprosoft.puma.mobile.gui.pages.android;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.puma.mobile.gui.pages.common.NavigationBarBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.PumaHomePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
@@ -9,7 +10,8 @@ import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = PumaHomePageBase.class)
 public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
-
+    @FindBy(xpath = "//nav[@aria-label='Main Navigation']")
+    private ExtendedWebElement navigationBar;
 
     @FindBy(xpath = "//button[@data-test-id='stay-on-region-button']")
     private ExtendedWebElement stayOnRegionBtn;
@@ -43,6 +45,16 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
     @Override
     public void closeCookiePanel() {
         closeCookieButton.click();
+    }
+
+    @Override
+    public NavigationBarBase getNavigationBar() {
+        return initPage(getDriver(), NavigationBarBase.class);
+    }
+
+    @Override
+    public boolean isPageOpened() {
+        return navigationBar.isElementPresent();
     }
 
 

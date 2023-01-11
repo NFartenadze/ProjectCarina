@@ -1,11 +1,11 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class ItemPage extends ItemPageBase {
+public class ItemPage extends AbstractPage {
     @FindBy(xpath = "//button[@data-test-id='pdp-add-to-cart']")
     private ExtendedWebElement cartButton;
 

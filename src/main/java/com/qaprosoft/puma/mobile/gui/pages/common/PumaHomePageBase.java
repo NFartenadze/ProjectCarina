@@ -10,8 +10,10 @@ public abstract class PumaHomePageBase extends AbstractPage {
 
     public abstract void closeCookiePanel();
 
+    public abstract NavigationBarBase getNavigationBar();
+
     public abstract void stayOnRegion();
-    
+
 
     public abstract void closeDiscountBtn();
 

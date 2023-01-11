@@ -1,11 +1,11 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LoginPageBase;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPage extends LoginPageBase {
+public class LoginPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='email']")
     private ExtendedWebElement loginField;
     @FindBy(xpath = "//input[@id='password']")

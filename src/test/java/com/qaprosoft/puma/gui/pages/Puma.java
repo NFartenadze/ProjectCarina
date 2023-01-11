@@ -78,7 +78,7 @@ public class Puma implements IAbstractTest {
         registrationPage.typeEmail("john1148@gmail.com");
         Assert.assertTrue(registrationPage.isPasswordFieldPresent(), "password field isn't present");
         registrationPage.typePassword("john11");
-        Assert.assertTrue(registrationPage.isRegisterButtonPresent(), "register button isn't present");
+        Assert.assertTrue(registrationPage.isRegisterBtnPresent(), "register button isn't present");
         registrationPage.clickRegister();
 //            Screenshot.takeScreenshot(driver);
     }

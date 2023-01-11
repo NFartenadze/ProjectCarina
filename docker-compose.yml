@@ -9,9 +9,10 @@ services:
     volumes:
       - "$PWD:/etc/selenoid/" # assumed current dir contains browsers.json
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "~/video/:/opt/selenoid/video/"
+      - "/Users/nikafartenadze/docker_stuff/video/:/opt/selenoid/video:rw"
     environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=~/selenoi/video/
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/Users/nikafartenadze/docker_stuff/video/
+    command: [ "-video-recorder-image","selenoid/video-recorder:latest-release" ]
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     network_mode: bridge

@@ -1,13 +1,13 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.puma.gui.components.States;
 import com.qaprosoft.puma.mobile.gui.pages.android.Countries;
-import com.qaprosoft.puma.mobile.gui.pages.common.AddressBookPageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class AddressBookPage extends AddressBookPageBase {
+public class AddressBookPage extends AbstractPage {
     @FindBy(xpath = "//input[@id='address-title-input']")
     private ExtendedWebElement addressTitleField;
     @FindBy(xpath = "//select[@id='address-form-country-select']")
@@ -155,12 +155,11 @@ public class AddressBookPage extends AddressBookPageBase {
         checkMakeDefault();
     }
 
-    @Override
+
     public boolean isCountrySelectorPresent() {
         return country.isElementPresent();
     }
 
-    @Override
     public void selectCountry(String s) {
         country.select(s);
     }

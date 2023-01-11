@@ -43,7 +43,15 @@ public class RegistrationPage extends AbstractPage {
         return passwordField.isElementPresent();
     }
 
-    public boolean isRegisterButtonPresent() {
+    public void checkAddToMailingList() {
+
+    }
+
+    public boolean isAddToMailingListCheckboxPresent() {
+        return false;
+    }
+
+    public boolean isRegisterBtnPresent() {
         return registerButton.isElementPresent();
     }
 
@@ -67,6 +75,7 @@ public class RegistrationPage extends AbstractPage {
         registerButton.scrollTo();
         registerButton.click();
     }
+
 
     public void fillRegistrationForm(String firstName, String lastName, String email, String password) {
         isFirstNameFieldPresent();

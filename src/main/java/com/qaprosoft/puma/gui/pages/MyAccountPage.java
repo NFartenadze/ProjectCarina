@@ -1,14 +1,14 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import com.qaprosoft.puma.mobile.gui.pages.common.AddressBookPageBase;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.MyAccountPageBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class MyAccountPage extends MyAccountPageBase {
+public class MyAccountPage extends AbstractPage {
     private static final Logger logger = LogManager.getLogger(RegistrationPage.class);
 
     @FindBy(xpath = "//a[@id='edit-profile-button']")
@@ -27,12 +27,10 @@ public class MyAccountPage extends MyAccountPageBase {
         setPageURL("");
     }
 
-    @Override
     public void clickLogout() {
         logoutBtn.click();
     }
 
-    @Override
     public boolean isLogoutPresent() {
         return logoutBtn.isElementPresent();
     }
@@ -43,7 +41,6 @@ public class MyAccountPage extends MyAccountPageBase {
         return initPage(getDriver(), AddressBookPageBase.class);
     }
 
-    @Override
     public void clickChangePassword() {
         editPassword.click();
     }
