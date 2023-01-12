@@ -16,19 +16,18 @@ public class Puma implements IAbstractTest {
     public void search() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        homePage.fullScreen();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
+        homePage.fullScreen();
         homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         NavigationBar navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isSearchBarPresent(), "search bar isn't present");
         navigationBar.typeInSearchBar("Bag");
-        navigationBar.clickSearch();
-        ResultPage resultPage = new ResultPage(getDriver());
+        ResultPage resultPage = navigationBar.clickSearch();
+        Assert.assertTrue(resultPage.isPageOpened(), "result page isn't opened");
         resultPage.printResultItemTexts();
         Assert.assertEquals(resultPage.getAmountOfItems(), 24);
-//    Screenshot.takeScreenshot(getDriver());
     }
 
 

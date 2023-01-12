@@ -14,9 +14,10 @@ public class ResultPage extends AbstractPage {
 
     private static final Logger logger = LogManager.getLogger(ResultPage.class);
 
-    @FindBy(xpath = "//ul[@id='product-list-items']/li/div[3]/a/h3")
+    @FindBy(xpath = "//a[@data-test-id='product-list-item-link']//h3")
     private List<ExtendedWebElement> itemTitles;
-
+    @FindBy(xpath = "//ul[@id='product-list-items']")
+    private ExtendedWebElement itemContainer;
 
     @FindBy(xpath = "//li[@data-test-id='product-list-item']")
     private List<ExtendedWebElement> items;
@@ -34,8 +35,11 @@ public class ResultPage extends AbstractPage {
     }
 
     public void printResultItemTexts() {
-        itemTitles
-                .forEach(e -> logger.info(e.getText()));
+        itemTitles.forEach(e -> logger.info(e.getText()));
+    }
+
+    public boolean isPageOpened() {
+        return itemContainer.isElementPresent();
     }
 
 
