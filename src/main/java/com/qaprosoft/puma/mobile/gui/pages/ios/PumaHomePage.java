@@ -1,24 +1,24 @@
 package com.qaprosoft.puma.mobile.gui.pages.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.puma.mobile.gui.pages.common.NavigationBarBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.PumaHomePageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = PumaHomePageBase.class)
 public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
-
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == 'Main Navigation, navigation'`]")
+    @FindBy(xpath = "//nav[@aria-label='Main Navigation']")
     private ExtendedWebElement navigationBar;
-    @ExtendedFindBy(iosClassChain = "")
+
+    @FindBy(xpath = "//button[@data-test-id='stay-on-region-button']")
     private ExtendedWebElement stayOnRegionBtn;
-    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeButton[`label == \"Close\"`]")
+    @FindBy(css = "#cookie-banner-close-btn")
     private ExtendedWebElement closeCookieButton;
 
-    @ExtendedFindBy(iosClassChain = "")
+    @FindBy(css = "use[href='/_next/static/assets/icons/close.svg#icon']")
     private ExtendedWebElement discountBtnClose;
 
     public PumaHomePage(WebDriver driver) {
@@ -31,6 +31,11 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
         stayOnRegionBtn.click();
     }
 
+
+    @Override
+    public void assertElementPresent(ExtendedWebElement extWebElement) {
+        super.assertElementPresent(extWebElement);
+    }
 
     @Override
     public void closeDiscountBtn() {
