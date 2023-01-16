@@ -93,16 +93,17 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         MenuPageBase menuPage = navigationBar.openMenuPage();
         Assert.assertTrue(menuPage.isSectionPresent(Sections.MEN), "language isn't present");
         menuPage.navigateToSection(Sections.MEN);
+
     }
 
 
     //safari doesn't recognise Web xpaths
     @Test(groups = "ios")
     public void ios() {
-        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
-//        pumaHomePage.stayOnRegion();
-//        pumaHomePage.closeCookiePanel();
+        pumaHomePage.stayOnRegion();
+        pumaHomePage.closeCookiePanel();
 //        pumaHomePage.closeDiscountBtn();
 //        Assert.assertTrue(pumaHomePage.isPageOpened(), "puma home page isn't opened");
 //        pumaHomePage.closeCookiePanel();
