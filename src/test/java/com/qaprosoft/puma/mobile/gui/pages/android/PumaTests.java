@@ -4,10 +4,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.puma.mobile.gui.pages.android.components.PumaAppFrame;
 import com.qaprosoft.puma.mobile.gui.pages.android.components.Sections;
 import com.qaprosoft.puma.mobile.gui.pages.common.*;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LanguagePageBase;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.RegistrationPageBase;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.SupportPageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.*;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -138,26 +135,26 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(supportPage.isNumberPresent(), "Number isn't present");
     }
 
-//    @Test
-//    public void submitOrderReturnRequest() {
-//        PumaHomePageBase pumaHomePageBase = initPage(getDriver(), PumaHomePageBase.class);
-//        ReturnPageBase returnPage = initPage(getDriver(), ReturnPageBase.class);
-//        returnPage.open();
-//        pumaHomePageBase.stayOnRegion();
-//        pumaHomePageBase.closeCookiePanel();
-//        pumaHomePageBase.closeDiscountBtn();
-//        PumaAppFrame appFrame = new PumaAppFrame(getDriver());
-//        appFrame.closeAppBanner();
-//        Assert.assertTrue(returnPage.isPageOpened(), "return page isn't opened");
-//        Assert.assertTrue(returnPage.isOrderNumberFieldPresent(), "order number field isn't present");
-//        returnPage.typeOrderNumber("123123");
-//        Assert.assertTrue(returnPage.isEmailFieldPresent(), "email field isn't present");
-//        returnPage.typeEmail("Email@Gmail.com");
-//        Assert.assertTrue(returnPage.isPostalCodeFieldPresent(), "postal code field isn't present");
-//        returnPage.typePostalCode("97979");
-//        Assert.assertTrue(returnPage.isSubmitBtnPresent(), "submit button isn't present");
-//        returnPage.clickSubmit();
-//    }
+    @Test
+    public void submitOrderReturnRequest() {
+        PumaHomePageBase pumaHomePageBase = initPage(getDriver(), PumaHomePageBase.class);
+        ReturnPageBase returnPage = initPage(getDriver(), ReturnPageBase.class);
+        returnPage.open();
+        pumaHomePageBase.stayOnRegion();
+        pumaHomePageBase.closeCookiePanel();
+        pumaHomePageBase.closeDiscountBtn();
+        PumaAppFrame appFrame = new PumaAppFrame(getDriver());
+        appFrame.closeAppBanner();
+        Assert.assertTrue(returnPage.isPageOpened(), "return page isn't opened");
+        Assert.assertTrue(returnPage.isOrderNumberFieldPresent(), "order number field isn't present");
+        returnPage.typeOrderNumber("123123");
+        Assert.assertTrue(returnPage.isEmailFieldPresent(), "email field isn't present");
+        returnPage.typeEmail("Email@Gmail.com");
+        Assert.assertTrue(returnPage.isPostalCodeFieldPresent(), "postal code field isn't present");
+        returnPage.typePostalCode("97979");
+        Assert.assertTrue(returnPage.isSubmitBtnPresent(), "submit button isn't present");
+        returnPage.clickSubmit();
+    }
 
     //safari doesn't recognise Web xpaths
 //    @Test(groups = "ios")
