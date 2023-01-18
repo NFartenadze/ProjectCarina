@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.puma.mobile.gui.pages.android.components.PumaAppFrame;
 import com.qaprosoft.puma.mobile.gui.pages.android.components.Sections;
 import com.qaprosoft.puma.mobile.gui.pages.common.*;
+import com.qaprosoft.puma.mobile.gui.pages.common.components.ClosePopUpUtil;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.*;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
@@ -17,9 +18,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void searchItem() {
         PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
-        pumaHomePage.stayOnRegion();
-        pumaHomePage.closeCookiePanel();
-        pumaHomePage.closeDiscountBtn();
+        ClosePopUpUtil closePopUpUtil = new ClosePopUpUtil(getDriver());
+        closePopUpUtil.stayOnRegion();
+        closePopUpUtil.closeCookiePanel();
+        closePopUpUtil.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
         NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
@@ -35,9 +37,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void addItemToCart() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
-        pumaHomePage.stayOnRegion();
-        pumaHomePage.closeCookiePanel();
-        pumaHomePage.closeDiscountBtn();
+        ClosePopUpUtil closePopUpUtil = new ClosePopUpUtil(getDriver());
+        closePopUpUtil.stayOnRegion();
+        closePopUpUtil.closeCookiePanel();
+        closePopUpUtil.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
@@ -57,9 +60,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
         Assert.assertTrue(pumaHomePage.isPageOpened(), "page isn't opened");
-        pumaHomePage.stayOnRegion();
-        pumaHomePage.closeCookiePanel();
-        pumaHomePage.closeDiscountBtn();
+        ClosePopUpUtil closePopUpUtil = new ClosePopUpUtil(getDriver());
+        closePopUpUtil.stayOnRegion();
+        closePopUpUtil.closeCookiePanel();
+        closePopUpUtil.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
@@ -85,9 +89,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void changeLanguage() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
-        pumaHomePage.stayOnRegion();
-        pumaHomePage.closeCookiePanel();
-        pumaHomePage.closeDiscountBtn();
+        ClosePopUpUtil closePopUpUtil = new ClosePopUpUtil(getDriver());
+        closePopUpUtil.stayOnRegion();
+        closePopUpUtil.closeCookiePanel();
+        closePopUpUtil.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
         NavigationBarBase navigationBar = new NavigationBar(getDriver());
@@ -103,9 +108,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void navigateToSection() {
         PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
-        pumaHomePage.stayOnRegion();
-        pumaHomePage.closeCookiePanel();
-        pumaHomePage.closeDiscountBtn();
+        ClosePopUpUtil closePopUpUtil = new ClosePopUpUtil(getDriver());
+        closePopUpUtil.stayOnRegion();
+        closePopUpUtil.closeCookiePanel();
+        closePopUpUtil.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
         NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
@@ -120,9 +126,10 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
     public void getContactInformation() {
         PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
-        pumaHomePage.stayOnRegion();
-        pumaHomePage.closeCookiePanel();
-        pumaHomePage.closeDiscountBtn();
+        ClosePopUpUtil closePopUpUtil = new ClosePopUpUtil(getDriver());
+        closePopUpUtil.stayOnRegion();
+        closePopUpUtil.closeCookiePanel();
+        closePopUpUtil.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
         NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
@@ -137,12 +144,12 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
 
     @Test
     public void submitOrderReturnRequest() {
-        PumaHomePageBase pumaHomePageBase = initPage(getDriver(), PumaHomePageBase.class);
         ReturnPageBase returnPage = initPage(getDriver(), ReturnPageBase.class);
         returnPage.open();
-        pumaHomePageBase.stayOnRegion();
-        pumaHomePageBase.closeCookiePanel();
-        pumaHomePageBase.closeDiscountBtn();
+        ClosePopUpUtil closePopUpUtil = new ClosePopUpUtil(getDriver());
+        closePopUpUtil.stayOnRegion();
+        closePopUpUtil.closeCookiePanel();
+        closePopUpUtil.closeDiscountBtn();
         PumaAppFrame appFrame = new PumaAppFrame(getDriver());
         appFrame.closeAppBanner();
         Assert.assertTrue(returnPage.isPageOpened(), "return page isn't opened");
@@ -155,21 +162,6 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         Assert.assertTrue(returnPage.isSubmitBtnPresent(), "submit button isn't present");
         returnPage.clickSubmit();
     }
-
-    //safari doesn't recognise Web xpaths
-//    @Test(groups = "ios")
-//    public void ios() {
-//        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
-//        pumaHomePage.open();
-//        pumaHomePage.stayOnRegion();
-//        pumaHomePage.closeCookiePanel();
-////        pumaHomePage.closeDiscountBtn();
-////        Assert.assertTrue(pumaHomePage.isPageOpened(), "puma home page isn't opened");
-////        pumaHomePage.closeCookiePanel();
-//        NavigationBarBase navigationBar = pumaHomePage.getNavigationBar();
-//        Assert.assertTrue(navigationBar.isSearchPresent(), "search icon isn't present");
-//        navigationBar.openSearchPage();
-//    }
 
 
 }
