@@ -15,7 +15,7 @@ import java.util.List;
 public class ResultPage extends ResultPageBase {
     private static final Logger logger = LogManager.getLogger(ResultPage.class);
 
-    @FindBy(xpath = "//ul[@id='product-list-items']/li/div[3]/a/h3")
+    @FindBy(xpath = "//ul[@id='product-list-items']/li//h3")
     private List<ExtendedWebElement> itemTitles;
     @FindBy(xpath = "//ul[@id='product-list-items']")
     private ExtendedWebElement itemContainer;

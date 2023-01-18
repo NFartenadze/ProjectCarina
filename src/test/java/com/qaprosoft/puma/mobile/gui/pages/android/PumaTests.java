@@ -4,6 +4,7 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.puma.mobile.gui.pages.android.components.PumaAppFrame;
 import com.qaprosoft.puma.mobile.gui.pages.android.components.Sections;
 import com.qaprosoft.puma.mobile.gui.pages.common.*;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LanguagePageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.RegistrationPageBase;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
@@ -30,6 +31,27 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         ResultPageBase resultPage = searchPage.searchProduct("bag");
         Assert.assertTrue(resultPage.isPageOpened(), "page isn't opened");
         resultPage.printResultItemTexts();
+    }
+
+    @Test(groups = "android")
+    public void addItemToCart() {
+        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        pumaHomePage.open();
+        pumaHomePage.stayOnRegion();
+        pumaHomePage.closeCookiePanel();
+        pumaHomePage.closeDiscountBtn();
+        PumaAppFrame frame = new PumaAppFrame(getDriver());
+        frame.closeAppBanner();
+        NavigationBarBase navigationBar = new NavigationBar(getDriver());
+        Assert.assertTrue(navigationBar.isSearchPresent(), "search bar isn't present");
+        SearchPageBase searchPage = navigationBar.openSearchPage();
+        Assert.assertTrue(searchPage.isSearchFieldPresent(), "search field isn't present");
+        ResultPageBase resultPage = searchPage.searchProduct("bag");
+        Assert.assertTrue(resultPage.isPageOpened(), "page isn't opened");
+        resultPage.printResultItemTexts();
+        ItemPageBase itemPage = resultPage.selectSearchedItem(0);
+        Assert.assertTrue(itemPage.isCartBtnPresent(), "Cart Button isn't present");
+        itemPage.addToCart();
     }
 
     @Test(groups = "android")

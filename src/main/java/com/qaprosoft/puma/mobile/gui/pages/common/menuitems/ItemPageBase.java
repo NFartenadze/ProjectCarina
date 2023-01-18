@@ -7,4 +7,8 @@ public abstract class ItemPageBase extends AbstractPage {
     public ItemPageBase(WebDriver driver) {
         super(driver);
     }
+
+    public abstract void addToCart();
+
+    public abstract boolean isCartBtnPresent();
 }
