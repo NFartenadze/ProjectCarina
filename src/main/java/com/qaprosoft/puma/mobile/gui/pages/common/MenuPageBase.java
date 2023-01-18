@@ -18,7 +18,7 @@ public abstract class MenuPageBase extends AbstractPage {
 
     public abstract boolean isMyAccountPresent();
 
-    public abstract InitiateReturnPageBase clickInitiateReturn();
+    public abstract ReturnPageBase clickInitiateReturn();
 
     public abstract boolean isInitiateReturnPresent();
 

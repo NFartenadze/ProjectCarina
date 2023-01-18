@@ -7,6 +7,7 @@ import com.qaprosoft.puma.mobile.gui.pages.common.*;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.LanguagePageBase;
 import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.RegistrationPageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.SupportPageBase;
 import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,16 +16,16 @@ import org.testng.annotations.Test;
 public class PumaTests implements IAbstractTest, IMobileUtils {
 
 
-    @Test(groups = "android")
+    @Test
     public void searchItem() {
-        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
         pumaHomePage.stayOnRegion();
         pumaHomePage.closeCookiePanel();
         pumaHomePage.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
-        NavigationBarBase navigationBar = new NavigationBar(getDriver());
+        NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
         Assert.assertTrue(navigationBar.isSearchPresent(), "search bar isn't present");
         SearchPageBase searchPage = navigationBar.openSearchPage();
         Assert.assertTrue(searchPage.isSearchFieldPresent(), "search field isn't present");
@@ -33,7 +34,7 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         resultPage.printResultItemTexts();
     }
 
-    @Test(groups = "android")
+    @Test
     public void addItemToCart() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
@@ -54,7 +55,7 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         itemPage.addToCart();
     }
 
-    @Test(groups = "android")
+    @Test
     public void registerNewAccount() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
@@ -83,7 +84,7 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
 //        registrationPage.clickRegister();
     }
 
-    @Test(groups = "android")
+    @Test
     public void changeLanguage() {
         PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
         pumaHomePage.open();
@@ -101,16 +102,16 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
         languagePage.selectLanguage();
     }
 
-    @Test(groups = "android")
+    @Test
     public void navigateToSection() {
-        PumaHomePageBase pumaHomePage = new PumaHomePage(getDriver());
+        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
         pumaHomePage.stayOnRegion();
         pumaHomePage.closeCookiePanel();
         pumaHomePage.closeDiscountBtn();
         PumaAppFrame frame = new PumaAppFrame(getDriver());
         frame.closeAppBanner();
-        NavigationBarBase navigationBar = new NavigationBar(getDriver());
+        NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
         Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
         MenuPageBase menuPage = navigationBar.openMenuPage();
         Assert.assertTrue(menuPage.isSectionPresent(Sections.MEN), "language isn't present");
@@ -118,21 +119,60 @@ public class PumaTests implements IAbstractTest, IMobileUtils {
 
     }
 
-
-    //safari doesn't recognise Web xpaths
-    @Test(groups = "ios")
-    public void ios() {
+    @Test
+    public void getContactInformation() {
         PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
         pumaHomePage.open();
         pumaHomePage.stayOnRegion();
         pumaHomePage.closeCookiePanel();
-//        pumaHomePage.closeDiscountBtn();
-//        Assert.assertTrue(pumaHomePage.isPageOpened(), "puma home page isn't opened");
-//        pumaHomePage.closeCookiePanel();
-        NavigationBarBase navigationBar = pumaHomePage.getNavigationBar();
-        Assert.assertTrue(navigationBar.isSearchPresent(), "search icon isn't present");
-        navigationBar.openSearchPage();
+        pumaHomePage.closeDiscountBtn();
+        PumaAppFrame frame = new PumaAppFrame(getDriver());
+        frame.closeAppBanner();
+        NavigationBarBase navigationBar = initPage(getDriver(), NavigationBarBase.class);
+        Assert.assertTrue(navigationBar.isMenuPresent(), "menu toggle icon isn't present");
+        MenuPageBase menuPage = navigationBar.openMenuPage();
+        Assert.assertTrue(menuPage.isSupportPresent(), "Support link isn't present");
+        SupportPageBase supportPage = menuPage.clickSupport();
+        Assert.assertTrue(supportPage.isEmailPresent(), "Email isn't present");
+        Assert.assertEquals(supportPage.getEmail(), "customerservice.us@puma.com");
+        Assert.assertTrue(supportPage.isNumberPresent(), "Number isn't present");
     }
+
+//    @Test
+//    public void submitOrderReturnRequest() {
+//        PumaHomePageBase pumaHomePageBase = initPage(getDriver(), PumaHomePageBase.class);
+//        ReturnPageBase returnPage = initPage(getDriver(), ReturnPageBase.class);
+//        returnPage.open();
+//        pumaHomePageBase.stayOnRegion();
+//        pumaHomePageBase.closeCookiePanel();
+//        pumaHomePageBase.closeDiscountBtn();
+//        PumaAppFrame appFrame = new PumaAppFrame(getDriver());
+//        appFrame.closeAppBanner();
+//        Assert.assertTrue(returnPage.isPageOpened(), "return page isn't opened");
+//        Assert.assertTrue(returnPage.isOrderNumberFieldPresent(), "order number field isn't present");
+//        returnPage.typeOrderNumber("123123");
+//        Assert.assertTrue(returnPage.isEmailFieldPresent(), "email field isn't present");
+//        returnPage.typeEmail("Email@Gmail.com");
+//        Assert.assertTrue(returnPage.isPostalCodeFieldPresent(), "postal code field isn't present");
+//        returnPage.typePostalCode("97979");
+//        Assert.assertTrue(returnPage.isSubmitBtnPresent(), "submit button isn't present");
+//        returnPage.clickSubmit();
+//    }
+
+    //safari doesn't recognise Web xpaths
+//    @Test(groups = "ios")
+//    public void ios() {
+//        PumaHomePageBase pumaHomePage = initPage(getDriver(), PumaHomePageBase.class);
+//        pumaHomePage.open();
+//        pumaHomePage.stayOnRegion();
+//        pumaHomePage.closeCookiePanel();
+////        pumaHomePage.closeDiscountBtn();
+////        Assert.assertTrue(pumaHomePage.isPageOpened(), "puma home page isn't opened");
+////        pumaHomePage.closeCookiePanel();
+//        NavigationBarBase navigationBar = pumaHomePage.getNavigationBar();
+//        Assert.assertTrue(navigationBar.isSearchPresent(), "search icon isn't present");
+//        navigationBar.openSearchPage();
+//    }
 
 
 }

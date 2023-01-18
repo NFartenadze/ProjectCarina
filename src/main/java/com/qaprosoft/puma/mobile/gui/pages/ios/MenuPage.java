@@ -60,9 +60,9 @@ public class MenuPage extends MenuPageBase implements IMobileUtils {
     }
 
     @Override
-    public InitiateReturnPageBase clickInitiateReturn() {
+    public ReturnPageBase clickInitiateReturn() {
         initiateReturn.click();
-        return initPage(getDriver(), InitiateReturnPageBase.class);
+        return initPage(getDriver(), ReturnPageBase.class);
     }
 
     @Override

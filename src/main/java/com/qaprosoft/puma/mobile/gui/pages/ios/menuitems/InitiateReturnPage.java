@@ -1,13 +1,13 @@
 package com.qaprosoft.puma.mobile.gui.pages.ios.menuitems;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.InitiateReturnPageBase;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ReturnPageBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = InitiateReturnPageBase.class)
-public class InitiateReturnPage extends InitiateReturnPageBase {
+@DeviceType(pageType = DeviceType.Type.ANDROID_PHONE, parentClass = ReturnPageBase.class)
+public class InitiateReturnPage extends ReturnPageBase {
     @FindBy(xpath = "//input[@data-test-id='order-no']")
     private ExtendedWebElement orderNumberField;
     @FindBy(id = "//input[@data-test-id='order-email']")
