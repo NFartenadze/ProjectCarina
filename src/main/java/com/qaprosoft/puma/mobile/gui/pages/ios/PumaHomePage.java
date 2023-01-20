@@ -26,33 +26,32 @@ public class PumaHomePage extends PumaHomePageBase implements IMobileUtils {
         setPageURL("https://us.puma.com/us/en");
     }
 
-    @Override
+
     public void stayOnRegion() {
         stayOnRegionBtn.click();
     }
 
 
-    @Override
     public void assertElementPresent(ExtendedWebElement extWebElement) {
         super.assertElementPresent(extWebElement);
     }
 
-    @Override
+
     public void closeDiscountBtn() {
         discountBtnClose.click();
     }
 
-    @Override
+
     public void closeCookiePanel() {
         closeCookieButton.click();
     }
 
-    @Override
+
     public NavigationBarBase getNavigationBar() {
         return initPage(getDriver(), NavigationBarBase.class);
     }
 
-    @Override
+
     public boolean isPageOpened() {
         return navigationBar.isElementPresent();
     }

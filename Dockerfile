@@ -3,5 +3,5 @@ WORKDIR /carina-demo
 COPY ./src /carina-demo/src
 COPY pom.xml /carina-demo
 RUN mvn clean test
-CMD ["mvn","test","-Dsuite=${SUITE}"]
+CMD ["mvn","test","-Dsuite=helloWorld"]
 EXPOSE 3000

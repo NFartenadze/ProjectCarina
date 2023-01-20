@@ -8,13 +8,8 @@ public abstract class PumaHomePageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract void closeCookiePanel();
 
     public abstract NavigationBarBase getNavigationBar();
 
-    public abstract void stayOnRegion();
-
-
-    public abstract void closeDiscountBtn();
 
 }
