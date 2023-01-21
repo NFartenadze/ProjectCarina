@@ -2,9 +2,8 @@
 <suite verbose="1" name="Puma Website Tests" parallel="methods">
 
     <parameter name="suiteOwner" value="nika"/>
-    <parameter name="jenkinsJobName" value="Puma-Web-Test"/>
+    <parameter name="jenkinsJobName" value="PumaWebTest"/>
     <parameter name="jenkinsJobType" value="web"/>
-    <parameter name="jenkinsEnvironments" value="DEMO"/>
     <parameter name="scheduling" value="H 2 * * *"/>
 
     <test name="Puma Test">
