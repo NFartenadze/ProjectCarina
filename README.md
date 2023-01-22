@@ -23,5 +23,5 @@ mvn clean eclipse:eclipse
 ### Run tests
 ```
 mvn clean test -Dsuite=api
-```asdasdasdasd
+```
 
