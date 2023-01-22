@@ -10,8 +10,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class Puma implements IAbstractTest {
-    //testing webhookasdasdasdasdasასდასდასდასსადddasasdasdasddsasdsdsdssdsdssdsdsdsdsdsdsdsd
-    //sdsasdasdasdasdasdasda
+    //testing
 
     @Test
     public void search() {
