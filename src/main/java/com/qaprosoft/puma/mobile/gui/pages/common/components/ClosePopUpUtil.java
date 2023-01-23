@@ -1,11 +1,11 @@
 package com.qaprosoft.puma.mobile.gui.pages.common.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractUIObject;
+import com.qaprosoft.carina.core.gui.AbstractPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class ClosePopUpUtil extends AbstractUIObject {
+public class ClosePopUpUtil extends AbstractPage {
     @FindBy(xpath = "//button[@data-test-id='stay-on-region-button']")
     private ExtendedWebElement stayOnRegionBtn;
     @FindBy(css = "#cookie-banner-close-btn")
