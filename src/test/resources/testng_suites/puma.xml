@@ -2,7 +2,7 @@
 <suite verbose="1" name="Puma Website Tests" parallel="methods">
 
     <parameter name="jenkinsEnableVideo" value="true"/>
-    <parameter name="suiteOwner" value="nikafartenadze"/>
+    <parameter name="suiteOwner" value="nika"/>
     <parameter name="jenkinsJobName" value="Puma-tests"/>
     <parameter name="jenkinsJobType" value="web"/>
     <test name="Puma Test">
