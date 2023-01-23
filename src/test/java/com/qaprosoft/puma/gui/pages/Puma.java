@@ -10,8 +10,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 public class Puma implements IAbstractTest {
-    //testing webhook 12312412312
-
+    //testing webhook
     @Test
     public void search() {
         HomePage homePage = new HomePage(getDriver());
