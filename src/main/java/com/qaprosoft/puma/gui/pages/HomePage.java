@@ -14,7 +14,7 @@ public class HomePage extends AbstractPage {
     private ExtendedWebElement stayOnRegion;
     @FindBy(xpath = "//div[@data-test-id='main-nav-bar']")
     private NavigationBar navigationBar;
-    @FindBy(css = "#cookie-banner-close-btn")
+    @FindBy(xpath = "//button[@data-test-id='cookie-banner-close-btn']")
     private ExtendedWebElement closeCookieButton;
 
     @FindBy(css = "use[href='/_next/static/assets/icons/close.svg#icon']")
