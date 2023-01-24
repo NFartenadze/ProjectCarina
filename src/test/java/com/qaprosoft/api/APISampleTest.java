@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.qaprosoft.carina.demo;
+package com.qaprosoft.api;
 
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.zebrunner.carina.core.registrar.ownership.MethodOwner;
@@ -23,17 +23,26 @@ import org.testng.annotations.Test;
 
 import java.lang.invoke.MethodHandles;
 
-/**
- * This is Hello World carina-demo tests.
- *
- * @author qpsdemo
- */
-public class HelloWorld implements IAbstractTest {
+
+public class APISampleTest implements IAbstractTest {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
+
     @Test()
-    @MethodOwner(owner = "qpsdemo")
-    public void helloWorld() {
-        LOGGER.info("Hello World!");
+    @MethodOwner(owner = "nika")
+    public void testGetUser() {
+        GetUserMethods getUsersMethods = new GetUserMethods();
+        getUsersMethods.callAPIExpectSuccess();
+        getUsersMethods.validateResponseAgainstSchema("api/users/_get/rs.schema");
     }
+
+    @Test()
+    @MethodOwner(owner = "nika")
+    public void createUser() {
+        PostUserMethod postUserMethod = new PostUserMethod();
+        postUserMethod.callAPIExpectSuccess();
+        postUserMethod.validateResponse();
+    }
+
 }
