@@ -25,8 +25,7 @@ import java.lang.invoke.MethodHandles;
 
 
 public class APISampleTest implements IAbstractTest {
-    //hook testasdasdsa
-    asdasdads
+    //hook test
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 
