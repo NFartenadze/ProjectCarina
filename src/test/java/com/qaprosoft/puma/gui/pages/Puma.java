@@ -4,14 +4,26 @@ import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.puma.gui.components.AccountPanel;
 import com.qaprosoft.puma.gui.components.LanguagePanel;
 import com.qaprosoft.puma.gui.components.NavigationBar;
+import com.zebrunner.agent.core.annotation.TestRailCaseId;
+import com.zebrunner.agent.core.registrar.TestRail;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
 public class Puma implements IAbstractTest {
-    //testing webhook
+
+
+    @BeforeSuite
+    public void setUp() {
+        TestRail.setSuiteId("172");
+        TestRail.setRunName("Puma Tests");
+        TestRail.setAssignee("Nika Fartenadze");
+    }
+
     @Test
+    @TestRailCaseId("3430")
     public void search() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();

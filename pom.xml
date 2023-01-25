@@ -106,7 +106,7 @@
                             <artifactId>agent-core</artifactId>
                             <version>${zebrunner-agent.version}</version>
                             <outputDirectory>${project.build.directory}/agent</outputDirectory>
-                            <destFileName>zebrunner-core-agent.jar</destFileName>
+                            <destFileName>zebrunner-agent.jar</destFileName>
                         </artifactItem>
                     </artifactItems>
                 </configuration>
@@ -116,7 +116,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M6</version>
                 <configuration>
-                    <argLine>-javaagent:${project.build.directory}/agent/zebrunner-core-agent.jar</argLine>
+                    <argLine>-javaagent:${project.build.directory}/agent/zebrunner-agent.jar</argLine>
                     <useSystemClassLoader>false</useSystemClassLoader>
                     <suiteXmlFiles>
                         <suiteXmlFile>${project.build.directory}/test-classes/testng_suites/${suite}.xml</suiteXmlFile>
