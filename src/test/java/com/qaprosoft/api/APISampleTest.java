@@ -25,7 +25,7 @@ import java.lang.invoke.MethodHandles;
 
 
 public class APISampleTest implements IAbstractTest {
-    //hook test testasdasdasd
+
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 
@@ -43,6 +43,14 @@ public class APISampleTest implements IAbstractTest {
         PostUserMethod postUserMethod = new PostUserMethod();
         postUserMethod.callAPIExpectSuccess();
         postUserMethod.validateResponse();
+    }
+
+    @Test()
+    @MethodOwner(owner = "nika")
+    public void updateUser() {
+        PutUserMethod putUserMethod = new PutUserMethod();
+        putUserMethod.callAPIExpectSuccess();
+        putUserMethod.validateResponse();
     }
 
 }
