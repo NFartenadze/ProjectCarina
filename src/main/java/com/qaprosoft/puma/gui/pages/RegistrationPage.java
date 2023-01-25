@@ -12,7 +12,7 @@ public class RegistrationPage extends AbstractPage {
 
     @FindBy(xpath = "//input[@name='firstName']")
     private ExtendedWebElement firstNameField;
-    @FindBy(xpath = "//input[@id='last-name']")
+    @FindBy(xpath = "//input[@data-test-id='last-name']")
     private ExtendedWebElement lastNameField;
     @FindBy(xpath = "//input[@id='email']")
     private ExtendedWebElement emailField;
