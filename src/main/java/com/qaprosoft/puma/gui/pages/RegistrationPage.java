@@ -14,9 +14,9 @@ public class RegistrationPage extends AbstractPage {
     private ExtendedWebElement firstNameField;
     @FindBy(xpath = "//input[@data-test-id='last-name']")
     private ExtendedWebElement lastNameField;
-    @FindBy(xpath = "//input[@id='email']")
+    @FindBy(xpath = "//input[@data-test-id='email']")
     private ExtendedWebElement emailField;
-    @FindBy(xpath = "//input[@id='password']")
+    @FindBy(xpath = "//input[@data-test-id='password']")
     private ExtendedWebElement passwordField;
     @FindBy(xpath = "//button[@data-test-id='register']")
     private ExtendedWebElement registerButton;
