@@ -8,8 +8,9 @@ import org.openqa.selenium.support.FindBy;
 
 public class Filter extends FilterBase {
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "**/XCUIElementTypeOther[`label == '%s'`]")
     ExtendedWebElement sortOption;
+
 
     public Filter(WebDriver driver) {
         super(driver);

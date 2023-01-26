@@ -1,16 +1,16 @@
 package com.qaprosoft.swag.mobile.gui.pages.ios;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.swag.mobile.gui.pages.common.LoginPageBase;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends LoginPageBase {
-    @FindBy(xpath = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeTextField[`name == \"test-Username\"`]")
     ExtendedWebElement loginField;
-    @FindBy(xpath = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeSecureTextField[`name == \"test-Password\"`]")
     ExtendedWebElement passwordField;
-    @FindBy(xpath = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"LOGIN\"`][2]")
     ExtendedWebElement loginBtn;
 
     //login standard_user/ password secret_sauce
@@ -20,31 +20,31 @@ public class LoginPage extends LoginPageBase {
 
     @Override
     public void typeLogin(String s) {
-        
+        loginField.type(s);
     }
 
     @Override
     public boolean isLoginFieldPresent() {
-        return false;
+        return loginField.isElementPresent();
     }
 
     @Override
     public void typePassword(String s) {
-
+        passwordField.type(s);
     }
 
     @Override
     public boolean isPasswordFieldPresent() {
-        return false;
+        return passwordField.isElementPresent();
     }
 
     @Override
     public void clickLoginBtn() {
-
+        loginBtn.click();
     }
 
     @Override
     public boolean isLoginBtnPresent() {
-        return false;
+        return loginBtn.isElementPresent();
     }
 }

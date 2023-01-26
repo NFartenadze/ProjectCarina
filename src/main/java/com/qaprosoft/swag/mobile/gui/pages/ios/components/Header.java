@@ -1,16 +1,16 @@
 package com.qaprosoft.swag.mobile.gui.pages.ios.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
+import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.puma.mobile.gui.pages.common.CartPageBase;
 import com.qaprosoft.swag.mobile.gui.pages.common.components.HeaderBase;
 import com.qaprosoft.swag.mobile.gui.pages.common.components.SideNavigationBase;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.FindBy;
 
 public class Header extends HeaderBase {
-    @FindBy(xpath = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Cart\"`]/XCUIElementTypeOther")
     ExtendedWebElement cartIcon;
-    @FindBy(xpath = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Menu\"`]")
     ExtendedWebElement sideBarBtn;
 
     public Header(WebDriver driver) {
@@ -19,21 +19,23 @@ public class Header extends HeaderBase {
 
     @Override
     public SideNavigationBase openSideBar() {
-        return null;
+        sideBarBtn.click();
+        return initPage(getDriver(), SideNavigationBase.class);
     }
 
     @Override
     public boolean isSideBarBtnPresent() {
-        return false;
+        return sideBarBtn.isElementPresent();
     }
 
     @Override
     public CartPageBase openCartPage() {
-        return null;
+        cartIcon.click();
+        return initPage(getDriver(), CartPageBase.class);
     }
 
     @Override
     public boolean isCartIconPresent() {
-        return false;
+        return cartIcon.isElementPresent();
     }
 }
