@@ -17,7 +17,7 @@ public abstract class LoginPageBase extends AbstractPage {
 
     public abstract boolean isPasswordFieldPresent();
 
-    public abstract void clickLoginBtn();
+    public abstract ProductsPageBase clickLoginBtn();
 
     public abstract boolean isLoginBtnPresent();
 }

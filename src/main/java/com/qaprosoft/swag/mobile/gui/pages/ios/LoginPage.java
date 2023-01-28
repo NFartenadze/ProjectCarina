@@ -3,8 +3,11 @@ package com.qaprosoft.swag.mobile.gui.pages.ios;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.swag.mobile.gui.pages.common.LoginPageBase;
+import com.qaprosoft.swag.mobile.gui.pages.common.ProductsPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = LoginPageBase.class)
 public class LoginPage extends LoginPageBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeTextField[`name == \"test-Username\"`]")
     ExtendedWebElement loginField;
@@ -39,8 +42,9 @@ public class LoginPage extends LoginPageBase {
     }
 
     @Override
-    public void clickLoginBtn() {
+    public ProductsPageBase clickLoginBtn() {
         loginBtn.click();
+        return initPage(getDriver(), ProductsPageBase.class);
     }
 
     @Override

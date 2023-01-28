@@ -4,13 +4,24 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.swag.mobile.gui.pages.common.ProductsPageBase;
 import com.qaprosoft.swag.mobile.gui.pages.common.components.FilterBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
+import java.util.List;
+
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = ProductsPageBase.class)
 public class ProductsPage extends ProductsPageBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Modal Selector Button\"`]/XCUIElementTypeOther/XCUIElementTypeOther")
     ExtendedWebElement filterIcon;
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Toggle\"`]")
     ExtendedWebElement productViewBtn;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"ADD TO CART\"`][%s]")
+    ExtendedWebElement addToCartBtn;
+
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Item\"`]")
+    List<ExtendedWebElement> products;
+
 
     public ProductsPage(WebDriver driver) {
         super(driver);
@@ -35,5 +46,15 @@ public class ProductsPage extends ProductsPageBase {
     @Override
     public boolean isFilterIconPresent() {
         return filterIcon.isElementPresent();
+    }
+
+    @Override
+    public void addProductToCart(int index) {
+        addToCartBtn.format(index).click();
+    }
+
+    @Override
+    public ExtendedWebElement getProduct(int i) {
+        return products.get(i);
     }
 }

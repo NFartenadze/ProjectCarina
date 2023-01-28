@@ -4,8 +4,10 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.swag.mobile.gui.pages.common.*;
 import com.qaprosoft.swag.mobile.gui.pages.common.components.SideNavigationBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = SideNavigationBase.class)
 public class SideNavigation extends SideNavigationBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"ALL ITEMS\"`]")
     ExtendedWebElement productPageLink;
