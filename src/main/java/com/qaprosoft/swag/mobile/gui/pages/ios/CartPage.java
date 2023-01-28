@@ -7,9 +7,9 @@ import com.qaprosoft.swag.mobile.gui.pages.common.CheckOutPageBase;
 import org.openqa.selenium.WebDriver;
 
 public class CartPage extends CartPageBase {
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"CONTINUE SHOPPING\"`][2]")
     ExtendedWebElement continueShoppingBtn;
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"CHECKOUT\"`][2]")
     ExtendedWebElement checkOutBtn;
 
     public CartPage(WebDriver driver) {

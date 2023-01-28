@@ -6,17 +6,17 @@ import com.qaprosoft.swag.mobile.gui.pages.common.CheckOutPageBase;
 import org.openqa.selenium.WebDriver;
 
 public class CheckOutPage extends CheckOutPageBase {
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeTextField[`name == \"test-First Name\"`]")
     ExtendedWebElement firstNameField;
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeTextField[`name == \"test-Last Name\"`]")
     ExtendedWebElement lastNameField;
 
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeTextField[`name == \"test-Zip/Postal Code\"`]")
     ExtendedWebElement postalCodeField;
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeTextField[`name == \"test-Zip/Postal Code\"`]")
     ExtendedWebElement cancelBtn;
 
-    @ExtendedFindBy(iosClassChain = "")
+    @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"CONTINUE\"`][2]")
     ExtendedWebElement continueBtn;
 
     public CheckOutPage(WebDriver driver) {
