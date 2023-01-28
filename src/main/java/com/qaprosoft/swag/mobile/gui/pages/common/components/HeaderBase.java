@@ -1,7 +1,7 @@
 package com.qaprosoft.swag.mobile.gui.pages.common.components;
 
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.puma.mobile.gui.pages.common.CartPageBase;
+import com.qaprosoft.swag.mobile.gui.pages.common.CartPageBase;
 import org.openqa.selenium.WebDriver;
 
 public abstract class HeaderBase extends AbstractPage {

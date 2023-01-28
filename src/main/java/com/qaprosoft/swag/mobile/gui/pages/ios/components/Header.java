@@ -2,7 +2,7 @@ package com.qaprosoft.swag.mobile.gui.pages.ios.components;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
-import com.qaprosoft.puma.mobile.gui.pages.common.CartPageBase;
+import com.qaprosoft.swag.mobile.gui.pages.common.CartPageBase;
 import com.qaprosoft.swag.mobile.gui.pages.common.components.HeaderBase;
 import com.qaprosoft.swag.mobile.gui.pages.common.components.SideNavigationBase;
 import com.zebrunner.carina.utils.factory.DeviceType;
