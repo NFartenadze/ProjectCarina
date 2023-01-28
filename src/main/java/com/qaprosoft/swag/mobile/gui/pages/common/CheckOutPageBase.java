@@ -24,7 +24,7 @@ public abstract class CheckOutPageBase extends AbstractPage {
 
     public abstract boolean isCancelBtnPresent();
 
-    public abstract void continueCheckout();
+    public abstract OverViewPageBase continueCheckout();
 
     public abstract boolean isContinueBtnPresent();
 }

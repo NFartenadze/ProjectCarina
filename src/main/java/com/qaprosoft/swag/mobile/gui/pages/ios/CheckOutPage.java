@@ -3,6 +3,7 @@ package com.qaprosoft.swag.mobile.gui.pages.ios;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.swag.mobile.gui.pages.common.CheckOutPageBase;
+import com.qaprosoft.swag.mobile.gui.pages.common.OverViewPageBase;
 import org.openqa.selenium.WebDriver;
 
 public class CheckOutPage extends CheckOutPageBase {
@@ -64,8 +65,9 @@ public class CheckOutPage extends CheckOutPageBase {
     }
 
     @Override
-    public void continueCheckout() {
+    public OverViewPageBase continueCheckout() {
         continueBtn.click();
+        return initPage(getDriver(), OverViewPageBase.class);
     }
 
     @Override
