@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 @DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = AboutPageBase.class)
 public class AboutPage extends AboutPageBase {
+
+
     public AboutPage(WebDriver driver) {
         super(driver);
     }

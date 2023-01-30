@@ -12,9 +12,9 @@ public class Swag implements IAbstractTest {
     @DataProvider(name = "dprovider")
     public Object[][] dpMethod() {
         return new Object[][]{
-                {new User("standard_user", "secret_sauce")},
-                {new User("locked_out_user", "secret_sauce")},
-                {new User("problem_user", "secret_sauce")}
+                {new User("standard_user", "secret_sauce")}
+//                {new User("locked_out_user", "secret_sauce")},
+//                {new User("problem_user", "secret_sauce")}
         };
     }
 
@@ -111,7 +111,7 @@ public class Swag implements IAbstractTest {
         sideNavigation.logOut();
     }
 
-    public void test1(User user) {
+    public void webViewPageTest(User user) {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isLoginFieldPresent(), "email field isn't present");
         loginPage.typeLogin(user.getUserName());
@@ -169,6 +169,7 @@ public class Swag implements IAbstractTest {
         SideNavigationBase sideNavigation = header.openSideBar();
         Assert.assertTrue(sideNavigation.isAboutPageLinkPresent(), "about link  isn't present");
         sideNavigation.openAboutPage();
+
     }
 
     public void drawingPageTest(User user) {

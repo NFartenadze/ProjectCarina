@@ -37,6 +37,7 @@ public class APISampleTest implements IAbstractTest {
         getUsersMethods.validateResponseAgainstSchema("api/users/_get/rs.schema");
     }
 
+
     @Test()
     @MethodOwner(owner = "nika")
     public void createUser() {

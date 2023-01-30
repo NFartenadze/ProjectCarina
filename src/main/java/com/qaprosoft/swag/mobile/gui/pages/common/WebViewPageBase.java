@@ -8,5 +8,11 @@ public abstract class WebViewPageBase extends AbstractPage {
         super(driver);
     }
 
-    public abstract void navigateToUrl(String url);
+    public abstract void enterUrl(String url);
+
+    public abstract boolean isUrlFieldPresent();
+
+    public abstract void goToSite();
+
+    public abstract boolean isGoToSiteBtnPresent();
 }
