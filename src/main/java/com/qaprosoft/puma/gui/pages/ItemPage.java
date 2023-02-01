@@ -1,11 +1,11 @@
 package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
-import com.qaprosoft.carina.core.gui.AbstractPage;
+import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class ItemPage extends AbstractPage {
+public class ItemPage extends ItemPageBase {
     @FindBy(xpath = "//button[@data-test-id='pdp-add-to-cart']")
     private ExtendedWebElement cartButton;
 
@@ -21,5 +21,10 @@ public class ItemPage extends AbstractPage {
     public void addToCart() {
         cartButton.scrollTo();
         cartButton.click();
+    }
+
+    @Override
+    public boolean isCartBtnPresent() {
+        return cartButton.isElementPresent();
     }
 }

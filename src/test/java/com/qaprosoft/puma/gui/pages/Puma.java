@@ -22,6 +22,7 @@ public class Puma implements IAbstractTest {
         TestRail.setAssignee("Nika Fartenadze");
     }
 
+
     @Test
     @TestRailCaseId("3430")
     public void search() {
@@ -29,7 +30,7 @@ public class Puma implements IAbstractTest {
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
         homePage.fullScreen();
-//        homePage.stayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         NavigationBar navigationBar = new NavigationBar(getDriver());
@@ -43,19 +44,20 @@ public class Puma implements IAbstractTest {
 
 
     @Test
+    @TestRailCaseId("3431")
     public void addItemToCart() throws IOException {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         homePage.fullScreen();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
-//        homePage.stayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         NavigationBar navigationBar = new NavigationBar(getDriver());
         Assert.assertTrue(navigationBar.isSearchBarPresent(), "search bar isn't present");
         navigationBar.typeInSearchBar("shoes");
-        navigationBar.clickSearch();
-        ResultPage resultPage = new ResultPage(getDriver());
+        ResultPage resultPage = navigationBar.clickSearch();
+        Assert.assertTrue(resultPage.isPageOpened(), "result pae isn't opened");
         resultPage.selectSearchedItem(0);
         ItemPage itemPage = new ItemPage(getDriver());
         itemPage.addToCart();
@@ -63,11 +65,12 @@ public class Puma implements IAbstractTest {
     }
 
     @Test
+    @TestRailCaseId("3432")
     public void registration() throws IOException {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-//            Assert.assertTrue(homePage.isPageOpened(),"home page isn't opened");
-//        homePage.stayOnRegion();
+        Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         //accessing navbar
@@ -93,12 +96,12 @@ public class Puma implements IAbstractTest {
 //            Screenshot.takeScreenshot(driver);
     }
 
-    @Test()
+    @Test
     public void navigateToWomenShoesSection() throws IOException, InterruptedException {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
-//        homePage.stayOnRegion();
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         NavigationBar navigationBar = new NavigationBar(getDriver());
@@ -110,11 +113,12 @@ public class Puma implements IAbstractTest {
     }
 
     @Test
+    @TestRailCaseId("3433")
     public void changeLanguage() throws IOException {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-//            Assert.assertTrue(homePage.isPageOpened(),"home page isn't opened");
-//        homePage.stayOnRegion();
+        Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
+        homePage.stayOnRegion();
         homePage.closeCookiePanel();
         homePage.closeDiscountBtn();
         //accessing navigation bar

@@ -2,7 +2,6 @@ package com.qaprosoft.puma.gui.pages;
 
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.gui.AbstractPage;
-import com.qaprosoft.puma.mobile.gui.pages.common.menuitems.ItemPageBase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -28,10 +27,10 @@ public class ResultPage extends AbstractPage {
     }
 
 
-    public ItemPageBase selectSearchedItem(int i) {
+    public ItemPage selectSearchedItem(int i) {
         items.get(i).scrollTo();
         items.get(i).click();
-        return initPage(getDriver(), ItemPageBase.class);
+        return new ItemPage(getDriver());
     }
 
     public void printResultItemTexts() {

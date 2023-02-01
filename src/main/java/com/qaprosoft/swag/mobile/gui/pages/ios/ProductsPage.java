@@ -15,7 +15,7 @@ public class ProductsPage extends ProductsPageBase {
     ExtendedWebElement filterIcon;
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`name == \"test-Toggle\"`]")
     ExtendedWebElement productViewBtn;
-
+ 
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"ADD TO CART\"`][%s]")
     ExtendedWebElement addToCartBtn;
 
