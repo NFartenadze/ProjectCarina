@@ -10,15 +10,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
 public class Puma implements IAbstractTest {
 
 
     @BeforeSuite
     public void setUp() {
         TestRail.setSuiteId("172");
-        TestRail.setRunName("Puma Tests");
+        TestRail.setRunName("Nika");
         TestRail.setAssignee("Nika Fartenadze");
     }
 
@@ -45,7 +43,7 @@ public class Puma implements IAbstractTest {
 
     @Test
     @TestRailCaseId("3431")
-    public void addItemToCart() throws IOException {
+    public void addItemToCart() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         homePage.fullScreen();
@@ -58,15 +56,14 @@ public class Puma implements IAbstractTest {
         navigationBar.typeInSearchBar("shoes");
         ResultPage resultPage = navigationBar.clickSearch();
         Assert.assertTrue(resultPage.isPageOpened(), "result pae isn't opened");
-        resultPage.selectSearchedItem(0);
+        resultPage.selectSearchedItem(123123); //custom created bug
         ItemPage itemPage = new ItemPage(getDriver());
         itemPage.addToCart();
-//            Screenshot.takeScreenshot(getDriver());
     }
 
     @Test
     @TestRailCaseId("3432")
-    public void registration() throws IOException {
+    public void registration() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
@@ -93,11 +90,10 @@ public class Puma implements IAbstractTest {
         registrationPage.typePassword("john11");
         Assert.assertTrue(registrationPage.isRegisterBtnPresent(), "register button isn't present");
         registrationPage.clickRegister();
-//            Screenshot.takeScreenshot(driver);
     }
 
     @Test
-    public void navigateToWomenShoesSection() throws IOException, InterruptedException {
+    public void navigateToWomenShoesSection() throws InterruptedException {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
@@ -109,12 +105,11 @@ public class Puma implements IAbstractTest {
         navigationBar.hoverWomenLink();
         Assert.assertTrue(navigationBar.isShoesElementPresent(), "shoes isn't present");
         navigationBar.clickShoes();
-//            Screenshot.takeScreenshot(driver);
     }
 
     @Test
     @TestRailCaseId("3433")
-    public void changeLanguage() throws IOException {
+    public void changeLanguage() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Assert.assertTrue(homePage.isPageOpened(), "home page isn't opened");
@@ -136,7 +131,6 @@ public class Puma implements IAbstractTest {
         languagePanel.clickSearchButton();
         Assert.assertTrue(languagePanel.checkResult());
         languagePanel.clickSearchedLanguage();
-//            Screenshot.takeScreenshot(driver);
     }
 
 
@@ -199,7 +193,6 @@ public class Puma implements IAbstractTest {
 //        addressBookPage.typePhoneNumber("5555555555");
 //        Assert.assertTrue(addressBookPage.isSaveBtnPresent(), "address title field isn't present");
 //        addressBookPage.clickSaveBtn();
-////            Screenshot.takeScreenshot(driver);
 //    }
 
 
