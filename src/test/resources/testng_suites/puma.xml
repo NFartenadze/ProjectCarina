@@ -6,6 +6,8 @@
     <parameter name="jenkinsJobName" value="Puma-tests"/>
     <parameter name="jenkinsJobType" value="web"/>
     <parameter name="enableVideo" value="true"></parameter>
+    <parameter name="TestRailSuiteId" value="172"/>
+    <parameter name="TestRailProjectId" value="6"/>
     <test name="Puma Test">
         <classes>
             <class name="com.qaprosoft.puma.gui.pages.Puma"/>

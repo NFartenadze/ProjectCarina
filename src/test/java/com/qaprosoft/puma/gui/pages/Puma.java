@@ -16,7 +16,6 @@ public class Puma implements IAbstractTest {
     @BeforeSuite
     public void setUp() {
         TestRail.setSuiteId("172");
-        TestRail.setRunName("Nika");
         TestRail.setAssignee("Nika Fartenadze");
     }
 
