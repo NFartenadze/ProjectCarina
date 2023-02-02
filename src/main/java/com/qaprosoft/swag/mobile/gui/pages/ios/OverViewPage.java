@@ -3,9 +3,13 @@ package com.qaprosoft.swag.mobile.gui.pages.ios;
 import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebElement;
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.swag.mobile.gui.pages.common.OverViewPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.openqa.selenium.WebDriver;
 
-public class OverViewPage extends OverViewPageBase {
+
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = OverViewPageBase.class)
+public class OverViewPage extends OverViewPageBase implements IMobileUtils {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"CANCEL\"`][2]")
     ExtendedWebElement cancelBtn;
 
@@ -30,6 +34,7 @@ public class OverViewPage extends OverViewPageBase {
     public void finishCheckout() {
         finishBtn.click();
     }
+
 
     @Override
     public boolean isFinishBtnPresent() {

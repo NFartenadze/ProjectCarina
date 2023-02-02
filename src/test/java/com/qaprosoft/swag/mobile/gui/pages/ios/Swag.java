@@ -3,11 +3,12 @@ package com.qaprosoft.swag.mobile.gui.pages.ios;
 import com.qaprosoft.carina.core.foundation.IAbstractTest;
 import com.qaprosoft.swag.mobile.gui.pages.common.*;
 import com.qaprosoft.swag.mobile.gui.pages.common.components.*;
+import com.zebrunner.carina.utils.mobile.IMobileUtils;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Swag implements IAbstractTest {
+public class Swag implements IAbstractTest, IMobileUtils {
 
     @DataProvider(name = "dprovider")
     public Object[][] dpMethod() {
@@ -39,11 +40,11 @@ public class Swag implements IAbstractTest {
         loginPage.typePassword(user.getPassword());
         Assert.assertTrue(loginPage.isLoginBtnPresent(), "login button isn't present");
         ProductsPageBase productsPage = loginPage.clickLoginBtn();
-        productsPage.addProductToCart(0);
+        productsPage.addProductToCart(2);
         HeaderBase header = initPage(getDriver(), HeaderBase.class);
         Assert.assertTrue(header.isCartIconPresent(), "cart icon isn't present");
         CartPageBase cartPage = header.openCartPage();
-
+        cartPage.goBackToProductsPage();
     }
 
     @Test(dataProvider = "dprovider")
@@ -77,7 +78,8 @@ public class Swag implements IAbstractTest {
         loginPage.typePassword(user.getPassword());
         Assert.assertTrue(loginPage.isLoginBtnPresent(), "login button isn't present");
         ProductsPageBase productsPage = loginPage.clickLoginBtn();
-        productsPage.addProductToCart(0);
+        productsPage.addProductToCart(2);
+
         HeaderBase header = initPage(getDriver(), HeaderBase.class);
         Assert.assertTrue(header.isCartIconPresent(), "cart icon isn't present");
         CartPageBase cartPage = header.openCartPage();
@@ -91,6 +93,7 @@ public class Swag implements IAbstractTest {
         checkOutPage.typePostalCode("12312");
         Assert.assertTrue(checkOutPage.isContinueBtnPresent(), "continue button isn't present");
         OverViewPageBase overViewPage = checkOutPage.continueCheckout();
+        swipeUp(5, 10);
         Assert.assertTrue(overViewPage.isFinishBtnPresent(), "finish button isn't present");
         overViewPage.finishCheckout();
     }
@@ -111,6 +114,7 @@ public class Swag implements IAbstractTest {
         sideNavigation.logOut();
     }
 
+    @Test(dataProvider = "dprovider")
     public void webViewPageTest(User user) {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isLoginFieldPresent(), "email field isn't present");
@@ -126,6 +130,7 @@ public class Swag implements IAbstractTest {
         sideNavigation.openWebViewPage();
     }
 
+    @Test(dataProvider = "dprovider")
     public void qrScannerPageTest(User user) {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isLoginFieldPresent(), "email field isn't present");
@@ -141,6 +146,7 @@ public class Swag implements IAbstractTest {
         sideNavigation.openQRScannerPage();
     }
 
+    @Test(dataProvider = "dprovider")
     public void geoLocationTest(User user) {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isLoginFieldPresent(), "email field isn't present");
@@ -156,6 +162,7 @@ public class Swag implements IAbstractTest {
         sideNavigation.openGeoLocationPage();
     }
 
+    @Test(dataProvider = "dprovider")
     public void aboutPageTest(User user) {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isLoginFieldPresent(), "email field isn't present");
@@ -168,10 +175,11 @@ public class Swag implements IAbstractTest {
         Assert.assertTrue(header.isSideBarBtnPresent(), "side bar button isn't present");
         SideNavigationBase sideNavigation = header.openSideBar();
         Assert.assertTrue(sideNavigation.isAboutPageLinkPresent(), "about link  isn't present");
-        sideNavigation.openAboutPage();
-
+        AboutPageBase aboutPage = sideNavigation.openAboutPage();
+        Assert.assertTrue(aboutPage.isPageOpened(), "Page isn't opened");
     }
 
+    @Test(dataProvider = "dprovider")
     public void drawingPageTest(User user) {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isLoginFieldPresent(), "email field isn't present");
@@ -184,9 +192,10 @@ public class Swag implements IAbstractTest {
         Assert.assertTrue(header.isSideBarBtnPresent(), "side bar button isn't present");
         SideNavigationBase sideNavigation = header.openSideBar();
         Assert.assertTrue(sideNavigation.isDrawingPageLinkPresent(), "drawing link  isn't present");
-        sideNavigation.openDrawingPage();
+        DrawingPageBase drawingPage = sideNavigation.openDrawingPage();
     }
 
+    @Test(dataProvider = "dprovider")
     public void resetAppStateTest(User user) {
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isLoginFieldPresent(), "email field isn't present");

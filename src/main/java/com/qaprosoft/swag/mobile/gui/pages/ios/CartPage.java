@@ -4,8 +4,11 @@ import com.qaprosoft.carina.core.foundation.webdriver.decorator.ExtendedWebEleme
 import com.qaprosoft.carina.core.foundation.webdriver.locator.ExtendedFindBy;
 import com.qaprosoft.swag.mobile.gui.pages.common.CartPageBase;
 import com.qaprosoft.swag.mobile.gui.pages.common.CheckOutPageBase;
+import com.zebrunner.carina.utils.factory.DeviceType;
 import org.openqa.selenium.WebDriver;
 
+
+@DeviceType(pageType = DeviceType.Type.IOS_PHONE, parentClass = CartPageBase.class)
 public class CartPage extends CartPageBase {
     @ExtendedFindBy(iosClassChain = "**/XCUIElementTypeOther[`label == \"CONTINUE SHOPPING\"`][2]")
     ExtendedWebElement continueShoppingBtn;
@@ -23,7 +26,7 @@ public class CartPage extends CartPageBase {
 
     @Override
     public CheckOutPageBase checkOut() {
-
+        checkOutBtn.click();
         return initPage(getDriver(), CheckOutPageBase.class);
     }
 
